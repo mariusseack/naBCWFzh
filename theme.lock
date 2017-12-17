@@ -84,7 +84,7 @@ config/settings_data.json:
 config/settings_schema.json:
   development: 2017-12-16T23:07:50+01:00   4de50d8b26c23ea835a23162e448572d
 layout/theme.liquid:
-  development: 2017-12-17T18:28:08+01:00   d3a850ad6b53e33229c372a175f6ddce
+  development: 2017-12-17T18:43:07+01:00   c9e6a21f4b5d78ed66448aecbab17cc3
 locales/de.json:
   development: 2017-12-16T23:07:50+01:00   585899bd4424d43afa93b72083a5aa0e
 locales/en.default.json:
