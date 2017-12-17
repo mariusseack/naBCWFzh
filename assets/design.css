@@ -466,6 +466,12 @@ nav ul a i {
   height: 75px;
 }
 
+.cart-productimg {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 .cart-product-description {
   margin-left: 10px;
 }
@@ -540,6 +546,7 @@ body>nav, body>section {
 /*  quote sections  */
 
 .quote-section {
+  margin-top: 150px;
   height: 400px;
   background: url("../assets/images/quote-bg.png") center center no-repeat fixed;
 }
@@ -632,13 +639,19 @@ body>nav, body>section {
 .product-element>.slideshow-wrapper {
   z-index: 2;
   position: relative;
-}
-
-.slideshow-wrapper>img {
+  background-color: #FFF;
+  text-align: center;
   border-radius: 4px;
 }
 
-.slideshow-wrapper>img:nth-child(n+2) {
+.slideshow-wrapper > .img {
+  height: 350px;
+  width: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.slideshow-wrapper > .img:nth-child(n+2) {
   position: absolute;
   top: 0;
   left: 0;
@@ -699,6 +712,10 @@ body>nav, body>section {
   flex-wrap: wrap;
   justify-content: space-around;
 }
+.home-social-post-wrapper .insta-col {
+  position: relative;
+  padding: 0 3px;
+}
 
 .home-social-post-wrapper>a>.img-wrapper {
   margin: 0 3px;
@@ -715,10 +732,10 @@ body>nav, body>section {
 .home-social-post-wrapper>a {
   position: relative;
   overflow: hidden;
-  width: calc(33.333%);
+  /*width: calc(33.333%);*/
 }
 
-.home-social-post-wrapper>a>.img-wrapper>.img-overlay {
+.home-social-post-wrapper .img-wrapper>.img-overlay {
   position: absolute;
   background-color: rgba(255, 255, 255, 0.2);
   opacity: 0;
@@ -728,7 +745,7 @@ body>nav, body>section {
   bottom: 6px;
 }
 
-.home-social-post-wrapper>a>.img-wrapper>.img-overlay>* {
+.home-social-post-wrapper .img-wrapper>.img-overlay>* {
   opacity: 0;
   position: absolute;
   top: 50%;
@@ -740,11 +757,11 @@ body>nav, body>section {
   transform: translate(-50%, -50%);
 }
 
-.home-social-post-wrapper>a>.img-wrapper>.img-overlay>i {
+.home-social-post-wrapper .img-wrapper>.img-overlay>i {
   color: #ed4956;
 }
 
-.home-social-post-wrapper>a>.img-wrapper>.img-overlay:hover, .home-social-post-wrapper>a>.img-wrapper>.img-overlay:hover>* {
+.home-social-post-wrapper .img-wrapper>.img-overlay:hover, .home-social-post-wrapper .img-wrapper>.img-overlay:hover>* {
   opacity: 1;
   transition: opacity 200ms ease-in-out;
   -ms-transition: opacity 200ms ease-in-out;
@@ -854,9 +871,9 @@ footer a {
     font-size: 1.7rem !important;
     margin: 1.9rem 0 .912rem 0;
   }
-  .home-social-post-wrapper>a>.img-wrapper {
+  /*.home-social-post-wrapper>a>.img-wrapper {
     margin: 1px;
-  }
+  }*/
   .social-link {
     letter-spacing: 0px;
     font-weight: 100;

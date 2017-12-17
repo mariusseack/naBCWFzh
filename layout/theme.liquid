@@ -5,15 +5,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
   {% if settings.favicon_enable %}
-  <link rel="shortcut icon" href="{{ 'favicon.png' | asset_url }}" type="image/png" />
+    <link rel="shortcut icon" href="{{ 'favicon.png' | asset_url }}" type="image/png" />
   {% endif %}
 
   <!-- Title and description ================================================== -->
   <title>
-  {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+    {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
   </title>
   {% if page_description %}
-  <meta name="description" content="{{ page_description | escape }}">
+    <meta name="description" content="{{ page_description | escape }}">
   {% endif %}
 
   <!-- Helpers ================================================== -->
@@ -26,7 +26,7 @@
   <!-- Header hook for plugins ================================================== -->
   {{ content_for_header }}
 
-  {{ '//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js' | script_tag }}
+  {{ '//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js' | script_tag }}
   {{ 'modernizr.min.js' | asset_url | script_tag }}
 
   {% comment %}
@@ -38,8 +38,14 @@
   <!--Import Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--Import fonts-->
-  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-
+  <!--<link href="https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700&subset=all" rel="stylesheet">-->
+  <style>
+    @import url(https://fonts.googleapis.com/css?family=Raleway);
+    @import url(https://fonts.googleapis.com/css?family=Roboto&text=0123456789);
+    body {
+        font-family: "Roboto", "Raleway";
+    }
+  </style>
   {{ 'materialize.min.css' | asset_url | stylesheet_tag }}
   {{ 'design.css' | asset_url | stylesheet_tag }}
   {{ 'font-awesome.min.css' | asset_url | stylesheet_tag }}
@@ -150,40 +156,10 @@
       <h4 class="cart-heading h4 primary-textcolor">Warenkorb</h4>
       <a id="close-cart-btn"><i class="material-icons secondary-textcolor">close</i></a>
     </div>
-    <div class="cart-element-wrapper">
-      <!-- when cart is empty show the following and hide all cart-elements -->
-      <div class="hide">
-        <p>Dein Warenkorb ist leer, zeit das zu &auml;ndern.</p>
-        <a class="btn waves-effect primary-btn">Entdecke unsere Produkte</a>
-      </div>
-
-      <!-- cart-element -->
-      <div class="cart-element hoverable z-depth-2 secondary-textcolor">
-        <img class="cart-productimg" src="../assets/images/test-product-img.png" alt="produktbild">
-        <p class="cart-product-description secondary-textcolor">
-          <span class="cart-amount-description">1x</span>
-          <span class="cart-name-description">Green Label - Zitrone & Ingwer</span>
-        </p>
-        <p class="cart-price center-align">9,99 &euro;</p>
-        <i class="delete-cartitem material-icons secondary-textcolor pointer">close</i>
-      </div>
-      <!-- /cart-element -->
-
-      <!-- cart-element -->
-      <div class="cart-element hoverable z-depth-2 black-text">
-        <img class="cart-productimg" src="../assets/images/test-product-img.png" alt="produktbild">
-        <p class="cart-product-description secondary-textcolor">
-          <span class="cart-amount-description">1x</span>
-          <span class="cart-name-description">Green Label - Zitrone & Ingwer</span>
-        </p>
-        <p class="cart-price center-align">9,99 &euro;</p>
-        <i class="delete-cartitem material-icons secondary-textcolor pointer">close</i>
-      </div>
-      <!-- /cart-element -->
-    </div>
+    <div class="cart-element-wrapper"></div>
 
     <hr class="fullWidth">
-    <p class="cart-sum h4 primary-textcolor">Summe:<span class="right">9,99 &euro;</span></p>
+    <p class="cart-sum h4 primary-textcolor">Summe:<span class="cart-sum-price right">{{ cart.total_price | money }}</span></p>
     <a class="btn waves-effect primary-btn btn-large rounded-btn">Zur Kasse</a>
 
   </div>

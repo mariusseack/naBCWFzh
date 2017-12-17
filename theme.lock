@@ -4,7 +4,7 @@ assets/FontAwesome.otf:
 assets/ajax-cart.js.liquid:
   development: 2017-12-16T23:07:49+01:00   5089d437026dde38c1918ea91324d35a
 assets/cart.js:
-  development: 2017-12-17T17:25:59+01:00   bca0523a2fb43f8b56c5fc01fbd362d3
+  development: 2017-12-18T00:36:02+01:00   23b7aa408dd7a856fe5c8a2ab24cd4f8
 assets/cs-logo-white.svg:
   development: 2017-12-17T18:24:10+01:00   3c625fec3f3078795c199b203432b07f
 assets/cs-logo-white0.svg:
@@ -14,7 +14,7 @@ assets/cs-logo.svg:
 assets/custom.js:
   development: 2017-12-17T17:26:21+01:00   96c1c1f37f30718b130f65c01b556665
 assets/design.css:
-  development: 2017-12-17T18:17:54+01:00   bbbfcc0e5eff44a3dcfef5296a15d85b
+  development: 2017-12-17T23:16:42+01:00   b516159b57f30d0ab76696312871eab9
 assets/fastclick.min.js:
   development: 2017-12-16T23:07:49+01:00   4c68290ccc4d503561895dff0821621f
 assets/font-awesome.css:
@@ -36,7 +36,7 @@ assets/gift-card.scss.liquid:
 assets/handlebars.min.js:
   development: 2017-12-16T23:07:49+01:00   b3c11508a224ee83f86e2fc6491e9751
 assets/home-product-slideshow.js:
-  development: 2017-12-17T17:26:25+01:00   2bfaac354c0a76928a9afcaf79a7c05b
+  development: 2017-12-17T19:46:40+01:00   0f361e1248bdbc1b89fc3771cc53e4d1
 assets/ico-select.svg.liquid:
   development: 2017-12-16T23:07:49+01:00   9c9cc5a57cc74a0a64c2f62b1370a920
 assets/icons.eot:
@@ -50,7 +50,7 @@ assets/icons.ttf:
 assets/icons.woff:
   development: 2017-12-16T23:07:49+01:00   6d64bee3b4d239a6cf6af98045a95954
 assets/instafeed-custom.js:
-  development: 2017-12-17T17:26:28+01:00   0f1c56470eb05cd1fffd5076aed3dd1d
+  development: 2017-12-17T20:45:49+01:00   0f5b02efe8f6dbbf23c22c283965b432
 assets/instafeed.min.js:
   development: 2017-12-17T17:26:30+01:00   1b9d5439b41e462220f9e6937df15b60
 assets/logo-black.png:
@@ -67,6 +67,8 @@ assets/materialize.min.js:
   development: 2017-12-17T17:26:46+01:00   e98efeec88f756629f42e58b1e11acaa
 assets/modernizr.min.js:
   development: 2017-12-16T23:07:49+01:00   dc21cffad945a84cbbe770d52b1a0ded
+assets/quote-bg.png:
+  development: 2017-12-17T20:12:45+01:00   550e50bf6d2882aef270bdcbd634c32d
 assets/respond-proxy.html:
   development: 2017-12-16T23:07:49+01:00   75002d74a330bff6bf069284da503b4c
 assets/respond.min.js:
@@ -84,7 +86,7 @@ config/settings_data.json:
 config/settings_schema.json:
   development: 2017-12-16T23:07:50+01:00   4de50d8b26c23ea835a23162e448572d
 layout/theme.liquid:
-  development: 2017-12-17T18:43:07+01:00   c9e6a21f4b5d78ed66448aecbab17cc3
+  development: 2017-12-18T00:51:49+01:00   da4c47a114afda874e108c052176a7b5
 locales/de.json:
   development: 2017-12-16T23:07:50+01:00   585899bd4424d43afa93b72083a5aa0e
 locales/en.default.json:
@@ -156,7 +158,7 @@ templates/customers/reset_password.liquid:
 templates/gift_card.liquid:
   development: 2017-12-16T23:07:50+01:00   c1ae0f8232e003fac57213d1353e513c
 templates/index.liquid:
-  development: 2017-12-16T23:07:50+01:00   aa449cd240994aa9787eef9d90b5b0f7
+  development: 2017-12-18T00:16:41+01:00   c433b0f2cc836d671410ff269c2fc0ed
 templates/list-collections.liquid:
   development: 2017-12-16T23:07:50+01:00   380da281c4820602d95334029b03aa84
 templates/page.contact.liquid:

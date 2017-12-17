@@ -7,157 +7,174 @@
     - http://docs.shopify.com/themes/liquid-variables/global
 {% endcomment %}
 
-<h2>{{ 'homepage.sections.frontpage_title' | t }}</h2>
-
-{% comment %}
-  Use class grid-uniform to have evenly sized columns clear
-  each other properly at each breakpoint.
-{% endcomment %}
-<div class="grid-uniform">
-
-  {% comment %}
-    Loop through products in your Frontpage collection.
-    This collection is created by default, but you must add products to it.
-  {% endcomment %}
-  {% for product in collections.frontpage.products limit:4 %}
-
-    {% comment %}
-      Change the grid item width by using classes from the grid in
-      the grid_item_width variable.
-
-      Example:
-        - {% assign grid_item_width = 'large--one-third medium--one-half' %}
-    {% endcomment %}
-    {% assign grid_item_width = 'large--one-quarter medium--one-half' %}
-    {% include 'product-grid-item' %}
-
-  {% else %}
-    {% comment %}
-      For onboarding new users to your theme, we add some default products and onboarding tutorials to help populate their store
-    {% endcomment %}
-    {% unless emptyState %}
-      {{ 'theme-onboarding.css' | global_asset_url | stylesheet_tag }}
-      {% assign emptyState = true %}
-    {% endunless %}
-
-    {% include 'onboarding-featured-products' %}
-
-  {% endfor %}
-
-</div>
-
-<hr>
-
-<h2>{{ 'homepage.sections.featured_title' | t }}</h2>
-
-<div class="grid-uniform">
-
-  {% comment %}
-    Show five collections, unless it's 'frontpage'.
-
-    Use an index variable in combination to the limit filter
-    to account for the frontpage collection being in top six returned.
-
-    Use variable isEmpty to check if no collections will be shown.
-    For empty store demo only.
-  {% endcomment %}
-  {% assign index = 1 %}
-  {% assign isEmpty = true %}
-
-  {% for collection in collections limit:6 %}
-    {% unless index > 5 %}
-
-      {% unless collection.handle == 'frontpage' %}
-        {% assign isEmpty = false %}
-        {% assign collection_item_width = 'large--one-fifth medium--one-third' %}
-        <div class="grid__item {{ collection_item_width }} text-center">
-          {% comment %}
-            Use capture to put the collection title in a variable that is used in liquid filters
-          {% endcomment %}
-          {% capture collection_title %}{{ collection.title | escape }}{% endcapture %}
-
-          <a href="{{ collection.url }}" title="{{ 'collections.general.link_title' | t: title: collection_title }}" class="grid__image">
-            {% if collection.image %}
-              {{ collection.image.src | img_url: 'large' | img_tag: collection_title }}
-            {% else %}
-              {{ collection.products.first.featured_image | img_url: 'large' | img_tag: collection_title }}
-            {% endif %}
-          </a>
-
-          <p>
-            <a href="{{ collection.url }}" title="{{ 'collections.general.link_title' | t: title: collection_title }}">{{ collection.title }}</a><br>
-            {{ 'collections.general.items_with_count' | t: count: collection.all_products_count }}
-          </p>
-        </div>
-        {% assign index = index | plus: 1 %}
-      {% endunless %}
-
-    {% endunless %}
-  {% endfor %}
-
-  {% comment %}
-    For onboarding new users to your theme, we add some default collections and onboarding tutorials to help populate their store
-  {% endcomment %}
-
-  {% if isEmpty %}
-    {% unless emptyState %}
-      {{ 'theme-onboarding.css' | global_asset_url | stylesheet_tag }}
-      {% assign emptyState = true %}
-    {% endunless %}
-
-    {% include 'onboarding-featured-collections' %}
-  {% endif %}
-
-</div>
-
-<hr>
-
-{% comment %}
-  Loop through three recent blog articles with the following code.
-
-  Since we're not on the blog template, we need to define the blog
-  handle we want to focus on. For this example we'll use the default 'news',
-  but you can create a blog page-specific content if you want.
-{% endcomment %}
-<h2>{{ 'homepage.sections.news_title' | t }}</h2>
-
-<div class="grid">
-  {% for article in blogs['news'].articles limit:3 %}
-
-    <div class="grid__item large--one-third">
-
-      <time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: format: 'month_day_year' }}</time>
-      <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
-
-      {% comment %}
-        Add a surrounding div with class 'rte' to anything that will come from the rich text editor.
-        Since this is just a listing page, you can either use the excerpt or truncate the full article.
-      {% endcomment %}
-      <div class="rte">
-        {% if article.excerpt.size > 0 %}
-          {{ article.excerpt }}
-        {% else %}
-          <p>{{ article.content | strip_html | truncatewords: 20 }}</p>
-        {% endif %}
+<!-- HOME-VIDEO-SECTION -->
+<section id="home-video-section">
+  <div class="home-carousel carousel carousel-slider center" data-indicators="true">
+    <div class="carousel-fixed-item center">
+      <a href="/products/green-label-zitrone-ingwer" class="btn waves-effect primary-bg btn-large pulse rounded-btn">ENTDECKE GREEN LABEL</a>
+    </div>
+    <!-- carousel panel -->
+    <div class="carousel-item grey darken-4 white-text" href="#one!">
+      <div class="carousel-item-wrapper valign-wrapper">
+        <video class="responsive-video fullWidth" poster="{{ 'video-poster.png' | file_url }}" autoplay loop muted playsinline>
+          <source src="{{ 'home-video.mp4' | file_url }}" type="video/mp4">
+        </video>
+        <h2 class="video-heading scroll-fade">Entdecke</h2>
+        <p class="white-text video-subheading scroll-fade">das ges&uuml;ndeste Getr&auml;nk der Welt!</p>
       </div>
+    </div>
+    <!-- !carousel panel -->
 
-      {% comment %}
-        Show off meta information like number of comments and tags.
-      {% endcomment %}
-      <ul>
-        {% if blog.comments_enabled? %}
-        <li>
-          <a href="{{ article.url }}#comments">
-            {{ article.comments_count }}
-            {{ 'blogs.comments.with_count' | t: count: article.comments_count }}
-          </a>
-        </li>
-        {% endif %}
-      </ul>
-
-      <p><a href="{{ article.url }}">{{ 'blogs.article.read_more' | t }} &rarr;</a></p>
-
+    <div class="carousel-item amber white-text" href="#two!">
+      <div class="carousel-item-wrapper valign-wrapper">
+        <h2 class="video-heading">Entdecke</h2>
+        <p class="white-text video-subheading">das ges&uuml;ndeste Getr&auml;nk der Welt!</p>
+      </div>
     </div>
 
-  {% endfor %}
-</div>
+    <div class="carousel-item green white-text" href="#three!">
+      <div class="carousel-item-wrapper valign-wrapper">
+        <h2 class="video-heading">Entdecke</h2>
+        <p class="white-text video-subheading">das ges&uuml;ndeste Getr&auml;nk der Welt!</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- !HOME-VIDEO-SECTION -->
+
+  <!-- HOME-PRODUCT-SECTION -->
+  <section id="home-product-section" class="content-section-inner">
+
+    <div class="container">
+      <div class="row">
+        <div class="col s12 center-align section-heading scroll-fade">
+          <h2>Neuerscheinungen</h2>
+          <p>Entdecke unsere neusten Produkte</p>
+        </div>
+      </div>
+
+      <div class="row">
+        {%- for product in collections['tee'].products -%}
+          <div class="product-wrapper col s12 m6 l6 scroll-fade{% if product.images.size == 1 %} offset-m3 offset-l3 {% endif %}">
+            <a href="{{ product.url }}" class="secondary-textcolor">
+              <div class="product-element">
+                <div class="slideshow-wrapper z-depth-5">
+                  {%- for image in product.images -%}
+                    <img src="{{ image.src | product_img_url: 'large' }}" class="img" alt="">
+                  {%- endfor -%}
+                </div>
+                <div class="product-information z-depth-3">
+                  <p class="product-element-preheading">Premium Tee, Biozertifiziert</p>
+                  <h4 class="product-element-heading">{{ product.title }}</h4>
+                  <div class="product-element-description">{{ product.description | truncate: 200 }}</div>
+                  <div class="divider"></div>
+                  <p class="product-element-interactiongroup">
+                    <span class="product-element-price left-align">ab&nbsp;{{ product.price_min | money }}</span>
+                    <span class="right">
+                    <span class="product-element-show tooltip"><i class="material-icons pointer primary-hoverable">remove_red_eye</i><span class="tooltiptext">Produkt ansehen</span></span>
+                    <span class="product-element-addtocart tooltip"><i class="material-icons pointer primary-hoverable">shopping_cart</i><span class="tooltiptext">In den Warenkorb</span></span>
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+        {%- endfor -%}
+
+      </div>
+      <div class="row">
+        <div class="btn_group col s12 m4 offset-m4">
+          <a href="/collections/all" class="btn waves-effect waves-light primary-btn">Alle Produkte</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- !HOME-PRODUCT-SECTION -->
+
+  <!-- QUOTE (About us) SECTION -->
+  <section id="home-quote-section" class="content-section-outer quote-section" style="background-image: url({{ 'quote-bg.png' | asset_url }})">
+    <div class="container fullHeight valign-wrapper scroll-fade">
+      <div class="row">
+        <div class="col s12 center-align section-heading white-text">
+          <p>Ideen sind nicht daf&uuml;r gemacht klein zu bleiben.</p>
+        </div>
+        <a class="waves-effect waves-light btn transparent-btn col s12 m4 offset-m4">&Uuml;ber uns</a>
+      </div>
+    </div>
+  </section>
+  <!-- !QUOTE (About us) SECTION -->
+
+
+    <!-- HOME-SOCIAL-SECTION -->
+    <section id="home-social-section" class="content-section-inner">
+      <div class="container">
+        <div class="row">
+          <div class="col s12 center-align section-heading scroll-fade">
+            <h2>join the society</h2>
+            <p>Melde dich jetzt an und erhalte die neusten Informationen</p>
+          </div>
+        </div>
+        <div class="row scroll-fade">
+          <form method="post">
+            <div class="input-field col m3 s6">
+              <input id="first_name" name="first_name" type="text" class="validate" required>
+              <label for="first_name">Vorname</label>
+            </div>
+            <div class="input-field col m3 s6">
+              <input id="last_name" name="last_name" type="text" class="validate" required>
+              <label for="last_name">Nachname</label>
+            </div>
+            <div class="input-field col m6 s12">
+              <input id="email" name="email" type="email" class="validate" required>
+              <label for="email" data-error="Falsche Eingabe" data-success="Erfolgreich!">Email</label>
+            </div>
+            <div class="col s12 m4 offset-m4 btn_group">
+              <button class="btn waves-effect waves-light primary-btn" type="submit" name="action">
+                      Best&auml;tigen
+                      <i class="fa fa-paper-plane right-btn-icon" aria-hidden="true"></i>
+                </button>
+            </div>
+          </form>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <div class="col s12 home-social-link-wrapper z-depth-3 rounded-corner scroll-fade">
+              <div class="col s6">
+                <p class="center-align"><span><i class="fa fa-instagram fa-lg" aria-hidden="true"></i></span><span><a href="https://www.instagram.com/cupsocietyde/" target="_blank" class="primary-hoverable secondary-textcolor social-link"> cupsocietyde</a></span></p>
+              </div>
+              <div class="col s6">
+                <p class="center-align"><span><i class="fa fa-facebook-square fa-lg" aria-hidden="true"></i></span><span><a href="https://www.facebook.com/cupsocietyde/" target="_blank" class="primary-hoverable secondary-textcolor social-link"> cupsociety</a></span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- load instagram app if available, otherwise open web instagram (@cupsocietyde) -->
+        <div id="instafeed" class="row scroll-fade home-social-post-wrapper">
+        </div>
+
+        <div class="row load-instafeed-group">
+          <div class="col s12 m4 offset-m4 btn_group">
+            <button class="btn primary-btn z-depth-3">mehr laden</button>
+          </div>
+          <div class="col s12 center-align hide spinner_group">
+            <div class="preloader-wrapper small active">
+              <div class="spinner-layer spinner-green-only">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                  <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+              </div>
+            </div>
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- !HOME-SOCIAL-SECTION -->

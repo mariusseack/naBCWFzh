@@ -6,7 +6,7 @@ $(document).ready(function() {
     resolution: 'standard_resolution',
     accessToken: '5864226392.1677ed0.d419e0abe0cf4bceb6c47906a264816c',
     sortBy: 'most-recent',
-    template: '<a href="instagram://media?id={{id}}" target="blank"><div class="img-wrapper pointer"><div class="img-overlay"><i class="fa fa-heart fa-4x center-align" aria-hidden="true"></i></div><img src="{{image}}" class="img"></div></a>',
+    template: '<div class="insta-col col s4"><a href="{{link}}" target="blank"><div class="img-wrapper pointer"><div class="img-overlay"><i class="fa fa-heart fa-4x center-align" aria-hidden="true"></i></div><img src="{{image}}" class="img"></div></a></div>',
     before: function() {
       $(".load-instafeed-group>div.btn_group").addClass("hide");
       $(".load-instafeed-group>div.spinner_group").removeClass("hide");
