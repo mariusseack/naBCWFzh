@@ -72,7 +72,7 @@ function updateCart() {
 
         // when cart is empty show the following and hide all cart-elements
         $_cart.append('<div> \
-            <p>Dein Warenkorb ist leer, zeit das zu &auml;ndern.</p> \
+            <p>Dein Warenkorb ist leer, Zeit das zu &auml;ndern.</p> \
             <a class="btn waves-effect primary-btn fullWidth">Entdecke unsere Produkte</a> \
           </div>');
       } else {
