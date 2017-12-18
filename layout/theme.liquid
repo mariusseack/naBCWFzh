@@ -61,9 +61,8 @@
   Add the page template as a class for easy page or template specific styling.
 {% endcomment %}
 <body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
-
   <!-- NAVBAR -->
-  <nav class="fixed transparent">   <!-- transparent just on index or productpage, otherwise inverse -->
+  <nav class="{%- if template.name == 'index' or template.name == 'product' -%} transparent{%- else -%} inverse{%- endif -%}">   <!-- transparent just on index or productpage, otherwise inverse -->
     <div class="nav-wrapper">
       <a href="#" class="brand-logo center">
             <img alt="cup society logo" src="{{ 'cs-logo-white.svg' | asset_url }}">
@@ -118,8 +117,8 @@
 
 
       <ul class="side-nav" id="mobile-demo">
-        <li><a href="./index.html">Home</a></li>
-        <li><a href="./product-overview.html">Produkte</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/collections/all">Produkte</a></li>
         <li><a href="./about-us.html">&Uuml;ber Uns</a></li>
         {% if customer %}
           <!-- TODO -->

@@ -4,7 +4,7 @@ assets/FontAwesome.otf:
 assets/ajax-cart.js.liquid:
   development: 2017-12-18T01:07:57+01:00   4e40bdd33fc6e7dd52fc462a612c01ea
 assets/cart.js:
-  development: 2017-12-18T01:07:47+01:00   76cba2a6ec97c00969dad201711afa91
+  development: 2017-12-18T14:31:15+01:00   f717532b772437798e881023c7306097
 assets/cs-logo-white.svg:
   development: 2017-12-18T01:08:09+01:00   9cd37d730578a55d1ed35c11301a669a
 assets/cs-logo-white0.svg:
@@ -14,7 +14,7 @@ assets/cs-logo.svg:
 assets/custom.js:
   development: 2017-12-18T01:08:06+01:00   58cf055ccb3b4cb39039c3ae36c93d9e
 assets/design.css:
-  development: 2017-12-17T23:16:42+01:00   b516159b57f30d0ab76696312871eab9
+  development: 2017-12-18T15:36:34+01:00   96776674b4090dc2aac255ea47e12249
 assets/fastclick.min.js:
   development: 2017-12-18T01:07:56+01:00   351621492ae61c2d0a351b4a96e19bff
 assets/font-awesome.css:
@@ -86,7 +86,7 @@ config/settings_data.json:
 config/settings_schema.json:
   development: 2017-12-16T23:07:50+01:00   4de50d8b26c23ea835a23162e448572d
 layout/theme.liquid:
-  development: 2017-12-18T01:07:52+01:00   b628f524c2fcd09a00416d3761904b88
+  development: 2017-12-18T15:24:03+01:00   0a3eb4e152b5535f334e1f1746334f66
 locales/de.json:
   development: 2017-12-16T23:07:50+01:00   585899bd4424d43afa93b72083a5aa0e
 locales/en.default.json:
@@ -138,7 +138,7 @@ templates/blog.liquid:
 templates/cart.liquid:
   development: 2017-12-18T01:08:09+01:00   d9368ee462b81694ff0aa12f3268123e
 templates/collection.liquid:
-  development: 2017-12-18T01:08:07+01:00   3ac74d09b49f8464ecd5bc42ddc4bfa4
+  development: 2017-12-18T15:15:16+01:00   44e43b990ecaab7319cb2be1b22afd08
 templates/collection.list.liquid:
   development: 2017-12-18T01:08:11+01:00   c51b4d3eee14e122743c90e29c6944ff
 templates/customers/account.liquid:
@@ -158,7 +158,7 @@ templates/customers/reset_password.liquid:
 templates/gift_card.liquid:
   development: 2017-12-18T01:07:56+01:00   8680feb518d7839ecbb90eccc3622bdd
 templates/index.liquid:
-  development: 2017-12-18T01:08:05+01:00   12eaa24019ac2d1a6028d017cfbac842
+  development: 2017-12-18T15:15:44+01:00   12eaa24019ac2d1a6028d017cfbac842
 templates/list-collections.liquid:
   development: 2017-12-18T01:08:05+01:00   49fdf96c3a13b2af2867a442b8b37739
 templates/page.contact.liquid:

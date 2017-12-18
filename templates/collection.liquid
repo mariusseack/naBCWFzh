@@ -6,95 +6,51 @@
 
 {% endcomment %}
 
-{% paginate collection.products by 12 %}
-
-{% include 'breadcrumb' %}
-
-{% comment %}
-  Use .grid--rev so that the collection tags appear below the products on mobile
-{% endcomment %}
-<div class="grid--rev">
-  <div class="grid__item large--three-quarters">
-
-    {% comment %}
-      Different markup if a collection description exists
-    {% endcomment %}
-    {% if collection.description != blank %}
-      <header class="section-header">
-        <h1 class="section-header__title">{{ collection.title }}</h1>
-        <div class="rte rte--header">
-          {{ collection.description }}
-        </div>
-      </header>
-      <hr>
-      <div class="section-header">
-        <div class="section-header__right">
-          {% include 'collection-sorting' %}
-        </div>
+<section id="productoverview-product-section" class="content-section-inner first no-cart-resize">
+  <div class="container">
+    <div class="row">
+      <div class="col s12 center-align section-heading scroll-fade">
+        <h2>Produkte</h2>
+        <p>Entdecke unsere exklusiven Tees & Zubeh&ouml;r</p>
       </div>
-    {% else %}
-      <header class="section-header">
-        <h1 class="section-header__title section-header__left">{{ collection.title }}</h1>
-        <div class="section-header__right">
-          {% include 'collection-sorting' %}
-        </div>
-      </header>
-    {% endif %}
-
-    {% comment %}
-      Use class grid-uniform to have evenly sized columns clear
-      each other properly at each breakpoint.
-    {% endcomment %}
-    <div class="grid-uniform">
-
-      {% comment %}
-        Loop through our products in the current collection.
-        See the snippet 'product-grid-item' for the layout.
-      {% endcomment %}
-      {% for product in collection.products %}
-
-        {% include 'product-grid-item' %}
-
-      {% else %}
-
-        {% if collection.handle == 'all' and current_tags == '' %}
-
-          {% comment %}
-            Add default products to help with onboarding for collections/all only
-          {% endcomment %}
-          {% unless emptyState %}
-            {{ 'theme-onboarding.css' | global_asset_url | stylesheet_tag }}
-            {% assign emptyState = true %}
-          {% endunless %}
-          {% include 'onboarding-empty-collection' %}
-
-        {% else %}
-
-          {% comment %}
-            If collection exists but is empty, display message
-          {% endcomment %}
-          <div class="grid__item">
-            <p>{{ 'collections.general.no_matches' | t }}</p>
-          </div>
-
-        {% endif %}
-
-      {% endfor %}
-
     </div>
-
-    {% if paginate.pages > 1 %}
-      <hr>
-      <div class="pagination">
-        {{ paginate | default_pagination | replace: '&laquo; Previous', '&larr;' | replace: 'Next &raquo;', '&rarr;' }}
-      </div>
-    {% endif %}
-
+    <div class="row">
+      {% assign products = collections['all'].products %}
+      {%- for product in products -%}
+        <div class="product-wrapper col s12 m12 l6 scroll-fade">
+          <a href="{{ product.url }}" class="secondary-textcolor">
+            <div class="product-element">
+              <div class="slideshow-wrapper z-depth-5">
+                {%- for image in product.images -%}
+                  <img src="{{ image.src | product_img_url: 'large' }}" class="img" alt="">
+                {%- endfor -%}
+              </div>
+              <div class="product-information z-depth-3">
+                <p class="product-element-preheading">
+                  {% for col in product.collections %}
+                  {%- if col.title == "Tee" -%}
+                    Premium Tee, Biozertifiziert
+                  {%- elsif col.title == "Accessoires" -%}
+                    Exklusiv & Hochwertig
+                  {%- endif -%}
+                  {%- endfor -%}
+                </p>
+                <h4 class="product-element-heading">{{ product.title }}</h4>
+                <div class="product-element-description">{{ product.description | truncate: 200 }}</div>
+                <div class="divider"></div>
+                <p class="product-element-interactiongroup">
+                  <span class="product-element-price left-align">ab&nbsp;{{ product.price_min | money }}</span>
+                  <span class="right">
+                  <span class="product-element-show tooltip"><i class="material-icons pointer primary-hoverable">remove_red_eye</i><span class="tooltiptext">Produkt ansehen</span></span>
+                  <span class="product-element-addtocart tooltip"><i class="material-icons pointer primary-hoverable">shopping_cart</i><span class="tooltiptext">In den Warenkorb</span></span>
+                  </span>
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+      {%- endfor -%}
+    </div>
   </div>
-
-  <div class="grid__item large--one-quarter">
-    {% include 'collection-sidebar' %}
-  </div>
-</div>
-
-{% endpaginate %}
+</section>
+<!-- !CONTENT -->

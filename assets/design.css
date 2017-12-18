@@ -305,7 +305,7 @@ nav {
 }
 
 nav.inverse {
-  background-color: rgba(0, 0, 0, .9);
+  background-color: rgba(0,0,0,0.9);
   transition: background-color 0.25s ease-in, width .5s ease-in-out;
   -ms-transition: background-color 0.25s ease-in, width .5s ease-in-out;
   -moz-transition: background-color 0.25s ease-in, width .5s ease-in-out;
