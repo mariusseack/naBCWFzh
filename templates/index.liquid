@@ -92,8 +92,9 @@
   </section>
   <!-- !HOME-PRODUCT-SECTION -->
 
+  {%- comment %}
   <!-- QUOTE (About us) SECTION -->
-  <section id="home-quote-section" class="content-section-outer quote-section hide-on-med-and-down" style="background-image: url({{ 'quote-bg.png' | asset_url }})">
+  <section id="home-quote-section" class="content-section-outer" style="background-image: url({{ 'quote-bg.png' | asset_url }})">
     <div class="container fullHeight valign-wrapper scroll-fade">
       <div class="row">
         <div class="col s12 center-align section-heading white-text">
@@ -104,7 +105,7 @@
     </div>
   </section>
   <!-- !QUOTE (About us) SECTION -->
-
+  {% endcomment -%}
 
     <!-- HOME-SOCIAL-SECTION -->
     <section id="home-social-section" class="content-section-inner">
