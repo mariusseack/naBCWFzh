@@ -9,6 +9,21 @@
 
 {% endcomment %}
 
+{% case product.id %}
+  {% when 12527085515 %}
+    {%- comment %}
+    	Grüntee
+    {% endcomment -%}
+     This is a tea
+  {% when 12527081291 %}
+    {%- comment %}
+    	Flasche
+    {% endcomment -%}
+     This is a bottle
+  {% else %}
+     This is not a cake nor a cookie
+{% endcase %}
+
 <div itemscope itemtype="http://schema.org/Product">
 
   <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
