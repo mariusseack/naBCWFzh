@@ -16,7 +16,7 @@ assets/custom.js:
 assets/customer-account.css:
   development: 2017-12-19T03:22:40+01:00   dc2cd71f84ca21e05dcc86b587363395
 assets/design.css:
-  development: 2017-12-19T19:46:48+01:00   54a53ff3149f2c21bbd76d7ed604e3aa
+  development: 2017-12-19T21:06:26+01:00   d49b95135fb56fac8c6f623f887b597f
 assets/fastclick.min.js:
   development: 2017-12-19T20:18:28+01:00   4c68290ccc4d503561895dff0821621f
 assets/font-awesome.css:
@@ -44,7 +44,7 @@ assets/ico-select.svg.liquid:
 assets/icons.eot:
   development: 2017-12-16T23:07:49+01:00   6499aa740322bffbb6e26ebadf450c4a
 assets/icons.json:
-  development: 2017-12-16T23:07:49+01:00   6f9018585c3e215e29cef8e390091787
+  development: 2017-12-19T20:50:59+01:00   6f9018585c3e215e29cef8e390091787
 assets/icons.svg:
   development: 2017-12-19T20:18:23+01:00   1f568afd815839eae6eb796a52a497a6
 assets/icons.ttf:
@@ -86,21 +86,21 @@ assets/timber.scss.liquid:
 config/settings_data.json:
   development: 2017-12-18T01:08:18+01:00   fe75d34743f726c8bb511205c7273fc5
 config/settings_schema.json:
-  development: 2017-12-16T23:07:50+01:00   4de50d8b26c23ea835a23162e448572d
+  development: 2017-12-19T20:50:57+01:00   4de50d8b26c23ea835a23162e448572d
 layout/theme.liquid:
   development: 2017-12-19T20:08:19+01:00   1a5a089f0a05e203302d4c188fc5cca7
 locales/de.json:
-  development: 2017-12-16T23:07:50+01:00   585899bd4424d43afa93b72083a5aa0e
+  development: 2017-12-19T20:51:21+01:00   585899bd4424d43afa93b72083a5aa0e
 locales/en.default.json:
-  development: 2017-12-16T23:07:50+01:00   0a791f30da40a2af3f9b331f7d3ec7fe
+  development: 2017-12-19T20:50:58+01:00   0a791f30da40a2af3f9b331f7d3ec7fe
 locales/es.json:
-  development: 2017-12-16T23:07:50+01:00   e1095d0bd282d98ace9c18e5973bb6bf
+  development: 2017-12-19T20:50:56+01:00   e1095d0bd282d98ace9c18e5973bb6bf
 locales/fr.json:
-  development: 2017-12-16T23:07:50+01:00   95311e190dd74a4665d004f60dda8ad2
+  development: 2017-12-19T20:51:29+01:00   95311e190dd74a4665d004f60dda8ad2
 locales/pt-BR.json:
-  development: 2017-12-16T23:07:50+01:00   3bc832b43077ef1681f2fe4be3eda8c9
+  development: 2017-12-19T20:50:57+01:00   3bc832b43077ef1681f2fe4be3eda8c9
 locales/pt-PT.json:
-  development: 2017-12-16T23:07:50+01:00   6ddf443592f389ff55aa739569736f47
+  development: 2017-12-19T20:51:20+01:00   6ddf443592f389ff55aa739569736f47
 snippets/ajax-cart-template.liquid:
   development: 2017-12-19T20:18:16+01:00   e6fa15367ab47a164d9dc8e47353c684
 snippets/blog-sidebar.liquid:
@@ -160,7 +160,7 @@ templates/customers/reset_password.liquid:
 templates/gift_card.liquid:
   development: 2017-12-19T20:18:15+01:00   c1ae0f8232e003fac57213d1353e513c
 templates/index.liquid:
-  development: 2017-12-19T20:09:46+01:00   b1e3c05ff00e3b2dbaca409e31e3178c
+  development: 2017-12-19T20:52:20+01:00   25df61bfc955aef4fc7bb341fe775845
 templates/list-collections.liquid:
   development: 2017-12-19T20:18:32+01:00   380da281c4820602d95334029b03aa84
 templates/page.contact.liquid:
