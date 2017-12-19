@@ -88,7 +88,7 @@ config/settings_data.json:
 config/settings_schema.json:
   development: 2017-12-19T20:50:57+01:00   4de50d8b26c23ea835a23162e448572d
 layout/theme.liquid:
-  development: 2017-12-19T20:08:19+01:00   1a5a089f0a05e203302d4c188fc5cca7
+  development: 2017-12-19T21:29:09+01:00   6bcb2a115de0063413e8ecfa01bfe8d1
 locales/de.json:
   development: 2017-12-19T20:51:21+01:00   585899bd4424d43afa93b72083a5aa0e
 locales/en.default.json:
@@ -160,7 +160,7 @@ templates/customers/reset_password.liquid:
 templates/gift_card.liquid:
   development: 2017-12-19T20:18:15+01:00   c1ae0f8232e003fac57213d1353e513c
 templates/index.liquid:
-  development: 2017-12-19T21:08:54+01:00   85f2946cda9930d8cd479591481c127b
+  development: 2017-12-19T22:00:25+01:00   6fc137ddf3974d1c41ccd4a805affb44
 templates/list-collections.liquid:
   development: 2017-12-19T20:18:32+01:00   380da281c4820602d95334029b03aa84
 templates/page.contact.liquid:
