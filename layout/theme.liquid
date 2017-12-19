@@ -85,7 +85,7 @@
           <ul id="nav-mobile-login" class="right hide-on-med-and-down">
             <li>
               <a href="/account">
-                <i class="material-icons white-textcolor">person</i>
+                <i class="material-icons white-textcolor" style="vertical-align: bottom;">person</i>
                 {% if customer.first_name != blank %}
                   {{ customer.first_name}}
                 {% else %}
@@ -191,7 +191,22 @@
               <p class="col s6 m3 center-align"><a href="/" class="primary-hoverable">Startseite</a></p>
               <p class="col s6 m3 center-align"><a href="/collections/all" class="primary-hoverable">Produkte</a></p>
               <p class="col s6 m3 center-align"><a href="" class="primary-hoverable">&Uuml;ber uns</a></p>
-              <p class="col s6 m3 center-align"><a href="/account/login" class="primary-hoverable">Konto</a></p>
+              <p class="col s6 m3 center-align">
+                {% if customer %}
+                  <a href="/account" class="primary-hoverable">
+                    <i class="material-icons white-textcolor" style="vertical-align: bottom;">person</i>
+                  {% if customer.first_name != blank %}
+                    {{ customer.first_name}}
+                  {% else %}
+                    Mein Konto
+                  {% endif %}
+                </a>
+                {% else %}
+                <a href="/account/login" class="primary-hoverable">
+                  <i class="material-icons white-textcolor" style="vertical-align: bottom;">person</i>
+                  Anmelden
+                {% endif %}
+              </p>
             </div>
             <div class="footer-secure col s12">
               <p class="col s6 m3 offset-m3 center-align"><a href="http://datenschutz.cupsociety.de" target="_blank" class="primary-hoverable pointer">Datenschutz</a></p>
