@@ -123,7 +123,7 @@
                 <div class="note form-success">{{ 'general.newsletter_form.newsletter_confirmation' | t }}</div>
               </div>
             {% else %}
-              <div class="input-field col m6 s12">
+              <div class="input-field col s12 m4 offset-m4">
                 <input type="hidden" name="contact[tags]" value="newsletter">
                 <input id="email" name="contact[email]" value="{% if customer %}{{ customer.email }}{% endif %}" type="email" class="validate" autocorrect="off" autocapitalize="off" required>
                 <label for="email" data-error="Falsche Eingabe" data-success="Erfolgreich!">{{ 'general.newsletter_form.newsletter_email' | t }}</label>
