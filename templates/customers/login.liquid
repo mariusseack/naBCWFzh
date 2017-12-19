@@ -63,7 +63,7 @@
 
                     <div class="row">
                       <div class="input-field col s12 m6">
-                        <input required id="first_name" type="text" class="validate" name="customer[first_name]" {% if form.first_name %}value="{{ form.first_name }}"{% endif %} autocapitalize="words" autofocus>
+                        <input required id="first_name" type="text" class="validate" name="customer[first_name]" {% if form.first_name %}value="{{ form.first_name }}"{% endif %} autocapitalize="words">
                         <label for="first_name">{{ 'customer.register.first_name' | t }}</label>
                       </div>
                       <div class="input-field col s12 m6">
@@ -86,9 +86,11 @@
                       <input type="checkbox" name="customer[accepts_marketing]" class="filled-in" id="filled-in-box" checked="checked" />
                       <label for="filled-in-box">Newsletter abbonieren</label>
                     </p>
-                    <p>
-                      <button class="btn waves-effect waves-light primary-btn" type="submit" value="{{ 'customer.register.submit' | t }}" name="action">Registrieren<i class="fa fa-sign-in right-btn-icon" aria-hidden="true"></i></button>
-                    </p>
+                    <div class="row">
+                      <div class="col s12 m4 offset-m4 btn_group">
+                        <button class="btn waves-effect waves-light primary-btn" type="submit" value="{{ 'customer.register.submit' | t }}" name="action">Registrieren<i class="fa fa-sign-in right-btn-icon" aria-hidden="true"></i></button>
+                      </div>
+                    </div>
 
                   {% endform %}
                 </div>
@@ -109,18 +111,18 @@
                     <div class="row">
                       <div class="input-field col s12">
                         <label for="ResetPassword" class="hidden-label">{{ 'customer.reset_password.password' | t }}</label>
-                        <input type="password" value="" name="customer[password]" id="ResetPassword" class="input-full{% if form.errors contains 'password' %} error{% endif %}" placeholder="{{ 'customer.reset_password.password' | t }}">
+                        <input type="password" value="" name="customer[password]" id="ResetPassword" class="input-full{% if form.errors contains 'password' %} error{% endif %}">
                       </div>
                     </div>
                     <div class="row">
                       <div class="input-field col s12">
                         <label for="PasswordConfirmation" class="hidden-label">{{ 'customer.reset_password.password_confirm' | t }}</label>
-                        <input type="password" value="" name="customer[password_confirmation]" id="PasswordConfirmation" class="input-full{% if form.errors contains 'password_confirmation' %} error{% endif %}" placeholder="{{ 'customer.reset_password.password_confirm' | t }}">
+                        <input type="password" value="" name="customer[password_confirmation]" id="PasswordConfirmation" class="input-full{% if form.errors contains 'password_confirmation' %} error{% endif %}">
                       </div>
                     </div>
                     <div class="row">
                       <div class="col s12 m4 offset-m4 btn_group">
-                        <button class="btn waves-effect waves-light primary-btn col s12 m4 offset-m4" type="submit" value="{{ 'customer.reset_password.submit' | t }}">Zur&uuml;cksetzen<i class="fa fa-sign-in right-btn-icon" aria-hidden="true"></i></button>
+                        <button class="btn waves-effect waves-light primary-btn" type="submit" value="{{ 'customer.reset_password.submit' | t }}">Zur&uuml;cksetzen<i class="fa fa-sign-in right-btn-icon" aria-hidden="true"></i></button>
                       </div>
                     </div>
 
