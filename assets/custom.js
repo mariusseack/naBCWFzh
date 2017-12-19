@@ -23,18 +23,3 @@ $(document).ready(function() {
 $('.carousel.carousel-slider').carousel({
   fullWidth: true
 });
-
-//hides the toHide element and shows the toShow element. Easy
-function toggleHidness(toHide, toShow) {
-  if (toHide != "") {
-    $(toHide).hide();
-  }
-
-  if (toShow != "") {
-    if ($(toShow).hasClass("hide")) {
-      $(toShow).removeClass("hide");
-    } else {
-      $(toShow).show();
-    }
-  }
-}

@@ -6,97 +6,109 @@
 
 {% endcomment %}
 
-<h1>{{ 'customer.account.title' | t }}</h1>
+<!-- CONTENT -->
+<section class="content-section-inner center-align valign-wrapper fullscreenHeight">
+  <div class="container">
+    <div class="row">
+      <div class="section-heading col s12">
+        <h4>Willkommen</h4>
+        <h2>{{customer.name}}</h2>
+        <div class="divider"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12">
+        <ul class="collapsible" data-collapsible="expandable">
+          <!-- Bestellungen -->
+          <li>
+            <div class="collapsible-header"><i class="material-icons">bookmark</i>Bestellungen<span class="new badge primary-btn" data-badge-caption="">{{customer.orders_count}}</span></div>
+            <div class="collapsible-body">
+              <!-- for every order; first one is active -->
+              <div class="row">
+                <ul class="collapsible" data-collapsible="accordion">
+                  {%- for order in customer.orders -%}
+                  <li>
+                    <div class="collapsible-header {% if forloop.first == true %}active{% endif %}">
+                      <p class="fullWidth no-margin">
+                        <span class="left valign-wrapper"><i class="fa fa-hashtag" aria-hidden="true"></i>{{order.order_number}}</span>
+                        <span class="right">Versandstatus: {{order.fulfillment_status_label}}</span>
+                      </p>
+                    </div>
+                    <div class="collapsible-body">
+                      <!-- Deliveryaddress -->
+                      <p>Deine Bestellung vom {{order.created_at | time_tag: '%d. %b %Y'}} {%- if order.fulfillment_status_label == 'Erfüllt' -%}<span>wurde an </span> {%- else -%}<span>wird an </span> {%- endif -%} {{order.shipping_address.name}}, {{order.shipping_address.address1}} {{order.shipping_address.address2}} in {{order.shipping_address.city}} gesendet.</p>
+                      <div class="order-element-wrapper">
+                        {%- for item in order.line_items -%}
+                        <div class="order-element hoverable z-depth-2">
+                          <div class="img hide-on-small-only" style="background-image: url('{{ item.image | img_url: 'small' }}');"></div>
+                          <p class="product-info fullWidth">{{item.quantity}}x {{item.title}}<span class="right">{{item.price | money}}</span></p>
+                        </div>
+                        {%- endfor -%}
+                      </div>
+                      <!-- Costoverview -->
+                      <ul class="collection order-sum-collection">
+                        <li class="collection-item">
+                          <p class="left-align no-margin">Zwischensumme:<span class="right">{{order.subtotal_price | money}}</span></p>
+                        </li>
+                        <li class="collection-item">
+                          <p class="left-align no-margin">MwSt.:<span class="right">{{order.tax_price | money}}</span></p>
+                        </li>
+                        <li class="collection-item">
+                          <p class="left-align no-margin">Versand:<span class="right">{{order.shipping_price | money}}</span></p>
+                        </li>
+                        <li class="collection-item">
+                          <p class="left-align no-margin">Summe:<span class="right">{{order.total_price | money}}</span></p>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  {%- endfor -%}
 
-<hr class="hr--small">
+                </ul>
+              </div>
+            </div>
+          </li>
+          <!-- !Bestellungen -->
 
-<div class="grid">
+          <!-- Einstellungen -->
+          <li>
+            <div class="collapsible-header"><i class="material-icons">settings</i>Einstellungen</div>
+            <div class="collapsible-body">
+              <div class="row no-margin">
+                <div class="btn_group col s12 m6 offset-m3">
+                  <a href="/account/addresses" class="btn primary-btn">Adressen verwalten</a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <!-- !Einstellungen -->
 
-  <div class="grid__item two-thirds medium-down--one-whole">
-    <h2 class="h4">{{ 'customer.orders.title' | t }}</h2>
+        </ul>
+      </div>
+    </div>
 
-    {% comment %}
-      If we have past orders, loop through each one
-    {% endcomment %}
-    {% paginate customer.orders by 20 %}
-      {% if customer.orders.size != 0 %}
+    <div class="row">
+      <div class="col s12 btn_group">
+        <a href="account/logout" class="btn primary-btn col m6 offset-m3">Ausloggen</a>
+      </div>
+    </div>
 
-        <div class="table-wrap">
-          <table class="full">
-            <thead>
-              <tr>
-                <th>{{ 'customer.orders.order_number' | t }}</th>
-                <th>{{ 'customer.orders.date' | t }}</th>
-                <th>{{ 'customer.orders.payment_status' | t }}</th>
-                <th>{{ 'customer.orders.fulfillment_status' | t }}</th>
-                <th>{{ 'customer.orders.total' | t }}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for order in customer.orders %}
-                <tr>
-                  <td>{{ order.name | link_to: order.customer_url }}</td>
-                  <td>{{ order.created_at | date: format: 'month_day_year' }}</td>
-                  <td>{{ order.financial_status_label }}</td>
-                  <td>{{ order.fulfillment_status_label }}</td>
-                  <td>{{ order.total_price | money }}</td>
-                </tr>
-              {% endfor %}
-            </tbody>
-          </table>
+    <!-- Support -->
+    <div class="hide-on-med-and-down">
+      <!-- Element Showed -->
+      <div class="fixed-action-btn">
+        <a id="menu" class="btn btn-floating btn-large primary-bg" onclick="$('.tap-target').tapTarget('open');"><i class="material-icons">question_answer</i></a>
+      </div>
+
+      <!-- Tap Target Structure -->
+      <div class="tap-target primary-container" data-activates="menu">
+        <div class="tap-target-content">
+          <h5>Sie haben Fragen?</h5>
+          <p>Kontaktieren Sie und einfach &uuml;ber support@cupsociety.de<br><br>Ihr Cup Society Team</p>
         </div>
-
-      {% else %}
-
-        <p>{{ 'customer.orders.none' | t }}</p>
-
-      {% endif %}
-      {% if paginate.pages > 1 %}
-        <hr>
-        <div class="pagination">
-          {{ paginate | default_pagination | replace: '&laquo; Previous', '&larr;' | replace: 'Next &raquo;', '&rarr;' }}
-        </div>
-      {% endif %}
-    {% endpaginate %}
+      </div>
+    </div>
+    <!-- !Support -->
   </div>
-
-  <div class="grid__item one-third medium-down--one-whole">
-    <h2 class="h4">{{ 'customer.account.details' | t }}</h2>
-
-    <h3 class="h5">{{ customer.name }}</h3>
-
-    {% if customer.default_address != nil %}
-      <p>
-      {{ customer.default_address.address1 }}<br>
-
-      {% if customer.default_address.address2 != "" %}
-        {{ customer.default_address.address2 }}<br>
-      {% endif %}
-
-      {% if customer.default_address.city != "" %}
-        {{ customer.default_address.city }}<br>
-      {% endif %}
-
-      {% if customer.default_address.province_code != "" %}
-        {{ customer.default_address.province_code | upcase }}<br>
-      {% endif %}
-
-      {% if customer.default_address.zip != "" %}
-        {{ customer.default_address.zip | upcase }}<br>
-      {% endif %}
-
-      {% if customer.default_address.country != "" %}
-        {{ customer.default_address.country }}<br>
-      {% endif %}
-
-      {% if customer.default_address.phone != "" %}
-        {{ customer.default_address.phone }}
-      {% endif %}
-      </p>
-
-    {% endif %}
-
-    <p><a href="/account/addresses">{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})</a></p>
-  </div>
-
-</div>
+</section>
+<!-- !CONTENT -->

@@ -1,5 +1,166 @@
 <!-- /templates/customers/login.liquid -->
+<!-- CONTENT -->
+<section class="content-section-inner center-align valign-wrapper fullscreenHeight">
+  <div class="container">
+    <div class="row">
+      <div class="section-heading col s12">
+        <h2>Konto</h2>
+        <div class="divider"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12">
+        <ul class="collapsible" data-collapsible="accordion">
+          <li>
+            <div class="collapsible-header active"><i class="material-icons">person</i>Anmelden</div>
+            <div class="collapsible-body">
+              <div class="row">
+                <div id="CustomerLoginForm" class="form-vertical">
+                  <div class="col s12">
+                    {% form 'customer_login' %}
+                      {%- if form.errors -%}
+                        <script type="text/javascript">
+                          $(function() { swal("Ups!", 'Ungültige Zugangsdaten.', "error"); });
+                        </script>
+                      {%- endif -%}
+                      <div class="row">
+                        <div class="input-field col s12 m6">
+                          <input id="email" type="email" name="customer[email]" class="validate input-full{% if form.errors contains 'email' %} error{% endif %}" autocorrect="off" autocapitalize="off" autofocus>
+                          <label for="email" data-error="Falsche Eingabe" data-success="Erfolgreich!">{{ 'customer.login.email' | t }}</label>
+                        </div>
+                        <div class="input-field col s12 m6">
+                          {% if form.password_needed %}
+                            <label for="password" class="hidden-label">{{ 'customer.login.password' | t }}</label>
+                            <input type="password" value="" name="customer[password]" id="password" class="validate input-full{% if form.errors contains 'password' %} error{% endif %}">
+                          {% endif %}
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col s12 m4 offset-m4 btn_group">
+                          <button type="submit" class="btn waves-effect waves-light primary-btn" value="{{ 'customer.login.sign_in' | t }}">
+                            Anmelden<i class="fa fa-sign-in right-btn-icon" aria-hidden="true"></i>
+                          </button>
+                        </div>
+                      </div>
+                    {% endform %}
+                  </div>
+                </div>
+                <form class="col s12" method="post">
+                  <div class="row">
+                    <div class="input-field col s12 m6">
+                      <input id="email" type="email" class="validate">
+                      <label for="email" data-error="Falsche Eingabe" data-success="Erfolgreich!">Email</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                      <input id="password" type="password" class="validate">
+                      <label for="password">Passwort</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col s12 m4 offset-m4 btn_group">
+                      <a href="./customer-account.html" class="btn waves-effect waves-light primary-btn" type="submit" name="action">Anmelden<i class="fa fa-sign-in right-btn-icon" aria-hidden="true"></i></a>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="material-icons">person_add</i>Registrieren</div>
+            <div class="collapsible-body">
+              <div class="row">
+                <form class="col s12" method="post">
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input required id="first_name" type="text" class="validate">
+                      <label for="first_name">Vorname</label>
+                    </div>
+                    <div class="input-field col s6">
+                      <input required id="last_name" type="text" class="validate">
+                      <label for="last_name">Nachname</label>
+                    </div>
 
+                    <div class="input-field col s8">
+                      <input required id="street" type="text" class="validate">
+                      <label for="street">Stra&szlig;e</label>
+                    </div>
+                    <div class="input-field col s4">
+                      <input required id="hnumber" type="text" class="validate">
+                      <label for="hnumber">Hausnr.</label>
+                    </div>
+
+                    <div class="input-field col s12 m6">
+                      <input id="address_plus" type="text" class="validate">
+                      <label for="address_plus">Adresszusatz (z.B. Etage) optional</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                      <input required id="location" type="text" class="validate">
+                      <label for="location">Stadt</label>
+                    </div>
+
+                    <div class="input-field col s12">
+                      <input id="telephone" type="tel" class="validate">
+                      <label for="telephone">Telefonnummer (optional)</label>
+                    </div>
+
+                    <div class="input-field col s12 m6">
+                      <input required id="email" type="email" class="validate">
+                      <label for="email">Email</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                      <input required id="password" type="password" class="validate">
+                      <label for="password">Passwort</label>
+                    </div>
+                    <div class="switch col s12">
+                      <p>
+                        <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
+                        <label for="filled-in-box">Newsletter abbonieren</label>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="btn_group col s12 m4 offset-m4">
+                      <button class="btn waves-effect waves-light primary-btn" type="submit" name="action">Registrieren<i class="fa fa-sign-in right-btn-icon" aria-hidden="true"></i></button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="material-icons">announcement</i>Anmeldedaten vergessen?</div>
+            <div class="collapsible-body">
+              <div class="row">
+                <form class="col s12" method="post">
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input required id="first_name" type="text" class="validate">
+                      <label for="first_name">Vorname</label>
+                    </div>
+                    <div class="input-field col s6">
+                      <input required id="last_name" type="text" class="validate">
+                      <label for="last_name">Nachname</label>
+                    </div>
+                    <div class="input-field col s12">
+                      <input id="email" type="email" class="validate">
+                      <label for="email" data-error="Falsche Eingabe" data-success="Erfolgreich!">Email</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col s12 m4 offset-m4 btn_group">
+                      <button class="btn waves-effect waves-light primary-btn col s12 m4 offset-m4" type="submit" name="action">Zur&uuml;cksetzen<i class="fa fa-sign-in right-btn-icon" aria-hidden="true"></i></button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- !CONTENT -->
 <div class="grid">
 
   <div class="grid__item large--one-third push--large--one-third text-center">

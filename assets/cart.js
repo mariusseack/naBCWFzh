@@ -93,7 +93,6 @@ function updateCart() {
       }
     })
     .fail(function(jqxhr, textStatus, error) {
-      console.log(error);
     });
 }
 

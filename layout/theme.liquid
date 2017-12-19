@@ -29,26 +29,18 @@
   {{ '//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js' | script_tag }}
   {{ 'modernizr.min.js' | asset_url | script_tag }}
 
-  {% comment %}
-    If you store has customer accounts disabled, you can remove the following JS file
-  {% endcomment %}
-  {% if template contains 'customers' %}
-    {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
-  {% endif %}
   <!--Import Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--Import fonts-->
-  <!--<link href="https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700&subset=all" rel="stylesheet">-->
-  <style>
-    @import url(https://fonts.googleapis.com/css?family=Raleway);
-    @import url(https://fonts.googleapis.com/css?family=Roboto&text=0123456789);
-    body {
-        font-family: "Roboto", "Raleway";
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
   {{ 'materialize.min.css' | asset_url | stylesheet_tag }}
   {{ 'design.css' | asset_url | stylesheet_tag }}
   {{ 'font-awesome.min.css' | asset_url | stylesheet_tag }}
+  {{ 'customer-account.css' | asset_url | stylesheet_tag }}
+
+  {{ "shopify_common.js"  | shopify_asset_url | script_tag }}           {%- comment %}  (original: https://cdn.shopify.com/s/shopify/shopify_common.js) {% endcomment -%}
+  <!-- {{ "customer_area.js"  | shopify_asset_url | script_tag }} -->   {%- comment %} will be overwritten in account.liquid (original: https://cdn.shopify.com/s/shopify/customer_area.js) {% endcomment -%}
 
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -106,10 +98,9 @@
         {% else %}
           <ul id="nav-mobile-login" class="right hide-on-med-and-down">
             <li>
-              <a href="/account/login">
+              <a id="customer_login_link" href="/account/login">
                 <i class="material-icons white-textcolor">person</i>Anmelden
               </a>
-              {%- comment -%}{{ 'layout.customer.log_in' | t | customer_login_link }}{%- endcomment -%}
             </li>
           </ul>
         {% endif %}
@@ -121,7 +112,7 @@
         <li><a href="/collections/all">Produkte</a></li>
         <li><a href="./about-us.html">&Uuml;ber Uns</a></li>
         {% if customer %}
-          <!-- TODO -->
+          <li><a href="/account">Mein Konto</a></li>
         {%- else -%}
           <li><a href="/account/login">Anmelden</a></li>
         {% endif %}
@@ -218,13 +209,15 @@
       <!--Import jQuery before materialize.../js-->
       {{ 'materialize.min.js' | asset_url | script_tag }}
       {{ 'instafeed.min.js' | asset_url | script_tag }}
-      {{ 'instafeed-custom.js' | asset_url | script_tag }}
+      {%- if template contains "index" -%}
+        {{ 'instafeed-custom.js' | asset_url | script_tag }}
+      {%- endif -%}
       {{ 'scrollreveal.min.js' | asset_url | script_tag }}
       {{ 'reveal-custom.js' | asset_url | script_tag }}
       {{ 'home-product-slideshow.js' | asset_url | script_tag }}
       {{ 'custom.js' | asset_url | script_tag }}
       {{ 'cart.js' | asset_url | script_tag }}
-
+      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </body>
 </html>

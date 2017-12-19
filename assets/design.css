@@ -171,6 +171,14 @@ a, .btn, .pointer {
   position: fixed;
 }
 
+.relative{
+  position: relative;
+}
+
+.absolute{
+  position: absolute;
+}
+
 img {
   pointer-events: none;
   max-width: 100%;
@@ -335,11 +343,8 @@ nav ul a:hover {
   color: #00864b;
   border-bottom: 3px solid #00864b;
   -webkit-transition: all .2s;
-  ;
   -o-transition: all .2s;
-  ;
   transition: all .2s;
-  ;
   background: none;
 }
 
@@ -449,6 +454,10 @@ nav ul a i {
   transition: border-left 300ms ease;
 }
 
+.order-element{
+  align-items: center;
+}
+
 .cart-element:hover, .order-element:hover {
   border-left: 10px solid #004225;
   transition: border-left 300ms ease;
@@ -461,9 +470,19 @@ nav ul a i {
   color: #004225;
 }
 
-.cart-productimg, .order-element>img {
+.cart-productimg, .order-element>.img {
   width: 75px;
   height: 75px;
+}
+
+.order-element>.img{
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.order-element>.product-info>.right{
+  margin-right: 1rem;
 }
 
 .cart-productimg {
@@ -476,7 +495,7 @@ nav ul a i {
   margin-left: 10px;
 }
 
-.cart-element:hover .cart-product-description, .cart-element:hover .cart-price, .order-element:hover p {
+.cart-element:hover .cart-product-description, .cart-element:hover .cart-price {
   font-weight: 700;
 }
 
@@ -691,7 +710,7 @@ body>nav, body>section {
 
 .product-element-price {
   font-weight: 700;
-  font-size: 22px;
+  font-size: 20px;
 }
 
 /*  !home-product-section */
