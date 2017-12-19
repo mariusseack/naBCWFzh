@@ -84,7 +84,7 @@ function updateCart() {
               <div class="cart-productimg" style="background-image: url('+ item.image.replace(/(\.png|\.jpg|\.jpeg)/, '_75x75$1') +')"></div> \
               <p class="cart-product-description secondary-textcolor"> \
                 <span class="cart-amount-description">'+ item.quantity +'x</span> \
-                <span class="cart-name-description"><a href="'+ item.url +'">'+ item.title +'</a></span> \
+                <span class="cart-name-description"><a href="'+ item.url +'" class="secondary-textcolor">'+ item.title +'</a></span> \
               </p> \
               <p class="cart-price center-align">'+ (item.price / 100).formatMoney(2, ',', '.') +' &euro;</p> \
               <i class="delete-cartitem material-icons secondary-textcolor pointer">close</i> \

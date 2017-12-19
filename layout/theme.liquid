@@ -56,7 +56,7 @@
   <!-- NAVBAR -->
   <nav class="{%- if template.name == 'index' or template.name == 'product' -%} transparent{%- else -%} inverse{%- endif -%}">   <!-- transparent just on index or productpage, otherwise inverse -->
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo center">
+      <a href="/" class="brand-logo center">
             <img alt="cup society logo" src="{{ 'cs-logo-white.svg' | asset_url }}">
           </a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -82,6 +82,18 @@
       {% endcomment %}
       {% if shop.customer_accounts_enabled %}
         {% if customer %}
+          <ul id="nav-mobile-login" class="right hide-on-med-and-down">
+            <li>
+              <a href="/account">
+                <i class="material-icons white-textcolor">person</i>
+                {% if customer.first_name != blank %}
+                  {{ customer.first_name}}
+                {% else %}
+                  Mein Konto
+                {% endif %}
+              </a>
+            </li>
+          </ul>
           {%- comment -%}
             <li class="mobile-nav__item">
               {% if customer.first_name != blank %}
@@ -111,31 +123,23 @@
         <li><a href="/">Home</a></li>
         <li><a href="/collections/all">Produkte</a></li>
         <li><a href="./about-us.html">&Uuml;ber Uns</a></li>
+        <div class="divider"></div>
         {% if customer %}
-          <li><a href="/account">Mein Konto</a></li>
+          <li>
+            <a href="/account">
+              <i class="material-icons white-textcolor no-margin" style="margin-right: 2px;">person</i>
+              {% if customer.first_name != blank %}
+                {{ customer.first_name}}
+              {% else %}
+                Mein Konto
+              {% endif %}
+            </a>
+          </li>
+          <li><a href="/account/logout">Abmelden</a></li>
         {%- else -%}
-          <li><a href="/account/login">Anmelden</a></li>
+          <li><a href="/account/login"><i class="material-icons white-textcolor no-margin" style="margin-right: 2px;">person</i>Anmelden</a></li>
         {% endif %}
       </ul>
-                  {% comment %}
-                    If customer accounts are enabled, provide login and create account links
-                  {% if shop.customer_accounts_enabled %}
-                    <div>
-                      {% if customer %}
-                        {% if customer.first_name != blank %}
-                          {% capture first_name %}<a href="/account">{{ customer.first_name }}</a>{% endcapture %}
-                          {{ 'layout.customer.logged_in_as_html' | t: first_name: first_name }}
-                        {% else %}
-                          <a href="/account">{{ 'layout.customer.account' | t }}</a>
-                        {% endif %}
-                        | {{ 'layout.customer.log_out' | t | customer_logout_link }}
-                      {% else %}
-                        {{ 'layout.customer.log_in' | t | customer_login_link }}
-                        | {{ 'layout.customer.create_account' | t | customer_register_link }}
-                      {% endif %}
-                    </div>
-                  {% endif %}
-                {% endcomment %}
     </div>
   </nav>
   <!-- !NAVBAR -->
