@@ -636,11 +636,6 @@ body>nav, body>section {
 
 /*  home-product-section  */
 
-#home-product-section {
-  margin-bottom: -40px;
-  /* because of the 40px fade out by hovering the product-element and to ensure that every section margin is equal */
-}
-
 .product-wrapper {
   height: auto;
 }
