@@ -52,10 +52,9 @@
         <p>Entdecke unsere neusten Produkte</p>
       </div>
     </div>
-<<<<<<< HEAD
 
     <div class="row">
-      {%- for product in collections['tee'].products -%}
+      {%- for product in collections['frontpage'].products -%}
         <div class="product-wrapper col s12 m6 l6 scroll-fade{% if product.images.size == 1 %} offset-m3 offset-l3 {% endif %}">
           <a href="{{ product.url }}" class="secondary-textcolor">
             <div class="product-element">
@@ -79,43 +78,6 @@
                         <span class="tooltiptext">In den Warenkorb</span>
                       </span>
                     </button>
-=======
-    <div class="row flex-container">
-      {% for collection in collections %}
-        {%- if collection.title == "Homepage" -%}
-          {%- for product in collection.products -%}
-            <div class="product-wrapper col s12 m6 l6 scroll-fade{% if collection.products_count == 1 %} offset-m3 offset-l3 {% endif %}">
-              <a href="{{ product.url }}" class="secondary-textcolor">
-                <div class="product-element">
-                  <div class="slideshow-wrapper z-depth-5">
-                    {%- for image in product.images -%}
-                      <img src="{{ image.src | product_img_url: 'large' }}" class="img" alt="">
-                    {%- endfor -%}
-                  </div>
-                  <div class="product-information z-depth-3">
-                    <p class="product-element-preheading">
-                      {% for col in product.collections %}
-                      {%- if col.title == "Tee" -%}
-                        Premium Tee, Biozertifiziert
-                      {%- elsif col.title == "Accessoires" -%}
-                        Exklusiv & Hochwertig
-                      {%- endif -%}
-                      {%- endfor -%}
-                    </p>
-                    <h4 class="product-element-heading">{{ product.title }}</h4>
-                    <div class="product-element-description">{{ product.description}}</div>
-                    <div class="divider"></div>
-                    <div class="product-element-interactiongroup">
-                      <span class="product-element-price left-align">ab&nbsp;{{ product.price_min | money }}</span>
-                      <div class="right">
-                        <span class="product-element-show tooltip"><i class="material-icons pointer primary-hoverable">remove_red_eye</i><span class="tooltiptext">Produkt ansehen</span></span>
-                          <form action="/collections/all" method="post" enctype="multipart/form-data" id="AddToCartForm" class="form-vertical" style="display: inline-block;">
-                            <button type="submit" class="non-style-btn"><span class="product-element-addtocart tooltip"><i class="material-icons pointer primary-hoverable">shopping_cart</i><span class="tooltiptext">In den Warenkorb</span></span></button>
-                            <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
-                          </form>
-                      </div>
-                    </div>
->>>>>>> e8494e9d969b4419255cb87947e6e7a33e601d87
                   </div>
                 </div>
               </a>
