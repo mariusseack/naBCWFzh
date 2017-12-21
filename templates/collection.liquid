@@ -14,7 +14,7 @@
         <p>Entdecke unsere exklusiven Tees & Zubeh&ouml;r</p>
       </div>
     </div>
-    <div class="row">
+    <div class="row flex-container">
       {% assign products = collections['all'].products %}
       {%- for product in products -%}
         <div class="product-wrapper col s12 m12 l6 scroll-fade">
@@ -36,15 +36,19 @@
                   {%- endfor -%}
                 </p>
                 <h4 class="product-element-heading">{{ product.title }}</h4>
-                <div class="product-element-description">{{ product.description | truncate: 200 }}</div>
+                <div class="product-element-description">{{ product.description }}</div>
                 <div class="divider"></div>
-                <p class="product-element-interactiongroup">
+                <div class="product-element-interactiongroup">
                   <span class="product-element-price left-align">ab&nbsp;{{ product.price_min | money }}</span>
-                  <span class="right">
-                  <span class="product-element-show tooltip"><i class="material-icons pointer primary-hoverable">remove_red_eye</i><span class="tooltiptext">Produkt ansehen</span></span>
-                  <span class="product-element-addtocart tooltip"><i class="material-icons pointer primary-hoverable">shopping_cart</i><span class="tooltiptext">In den Warenkorb</span></span>
-                  </span>
-                </p>
+                  <div class="right">
+                    <span class="product-element-show tooltip"><i class="material-icons pointer primary-hoverable">remove_red_eye</i><span class="tooltiptext">Produkt ansehen</span></span>
+
+                      <form action="/collections/all" method="post" enctype="multipart/form-data" id="AddToCartForm" class="form-vertical" style="display: inline-block;">
+                        <button type="submit" class="non-style-btn"><span class="product-element-addtocart tooltip"><i class="material-icons pointer primary-hoverable">shopping_cart</i><span class="tooltiptext">In den Warenkorb</span></span></button>
+                        <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+                      </form>
+                  </div>
+                </div>
               </div>
             </div>
           </a>

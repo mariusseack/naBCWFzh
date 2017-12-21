@@ -73,18 +73,37 @@ a:hover .primary-hoverable-bg {
   color: #fefefe !important;
   background-color: #00864b !important;
   -webkit-transition: background-color .2s;
-  ;
   -o-transition: background-color .2s;
-  ;
   transition: background-color .2s;
-  ;
 }
 
 .primary-hoverable:hover {
   color: #00864b !important;
 }
 
+.non-style-btn{
+  border: none;
+  background: transparent;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+}
+
+.flex-container{
+  display: flex;
+}
+
+.non-style-btn:active, .non-style-btn:focus, .non-style-btn:hover, .non-style-btn:visited{
+  background-color: transparent;
+}
+
 /* input field colors  */
+
+/*delete*/
+.shopify-preview-bar{
+
+}
 
 /* label color */
 
@@ -563,7 +582,6 @@ body>nav, body>section {
 .quote-section {
   margin-top: 150px;
   height: 400px;
-  background: url("../assets/images/quote-bg.png") center center no-repeat fixed;
 }
 
 .quote-section>.container>.row {
@@ -644,6 +662,8 @@ body>nav, body>section {
   width: 100%;
   height: 100%;
   min-height: 350px !important;
+  display: flex;
+  flex-direction: column;
 }
 
 .product-element>.slideshow-wrapper {
@@ -673,35 +693,39 @@ body>nav, body>section {
   margin: 0 1rem;
   position: relative;
   z-index: 1;
-  padding-top: calc(40px + 1rem);
+  padding-top: 1rem;
   background-color: #fefefe;
   border-radius: 0 0 .3rem .3rem;
-  top: -100px;
-  -webkit-transition: top 300ms ease-in-out;
-  -moz-transition: top 300ms ease-in-out;
-  -o-transition: top 300ms ease-in-out;
-  transition: top 300ms ease-in-out;
-}
-
-.product-element:hover>.product-information {
-  -webkit-transition: top 300ms ease-in-out;
-  -moz-transition: top 300ms ease-in-out;
-  -o-transition: top 300ms ease-in-out;
-  transition: top 300ms ease-in-out;
-  top: -40px;
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .product-element>.product-information>.product-element-heading {
-  font-size: 2rem;
+  font-size: 1.7rem;
+}
+
+.product-element>.product-information>.product-element-description{
+  flex: 1 0 auto;
+}
+
+.product-element>.product-information>.product-element-interactiongroup{
+  margin-top: 5px;
 }
 
 .product-element-show {
   margin-right: 10px;
+  vertical-align: middle;
+}
+
+.product-element-addtocart{
+  vertical-align: middle;
 }
 
 .product-element-price {
   font-weight: 700;
   font-size: 20px;
+  line-height: 1;
 }
 
 /*  !home-product-section */
@@ -789,6 +813,45 @@ body>nav, body>section {
 
 /*  !home-social-section  */
 
+section.information-content{
+  margin-top: 250px;
+  margin-bottom: 50px;
+  height: 100%;
+}
+
+.information-box{
+  flex-wrap: wrap;
+}
+
+.information-box>.content{
+  display: flex;
+  flex-direction: column;
+  min-height: 500px;
+  justify-content: center;
+  align-items: center;
+}
+
+.information-box>.content>p{
+  padding: 0 4rem;
+  text-align: justify;
+}
+
+.information-box>.content>h2{
+  font-size: 3rem;
+  letter-spacing: 0.75rem;
+  text-transform: uppercase;
+}
+
+.information-box>.content>.sieb-img{
+  width: 80%;
+}
+
+.information-box>.content.shadow-box{
+  -moz-box-shadow:    0px 0px 0px 5px #000, 0px 0px 0px 15px #ffffff, 0px 0px 30px 15px #000;
+  -webkit-box-shadow: 0px 0px 0px 5px #000, 0px 0px 0px 15px #ffffff, 0px 0px 30px 15px #000;
+  box-shadow:         0px 0px 0px 5px #000, 0px 0px 0px 15px #ffffff, 0px 0px 30px 15px #000;
+}
+
 /*  FOOTER  */
 
 footer {
@@ -837,6 +900,11 @@ footer a {
   body.open-cart>nav, body.open-cart>section {
     width: 100% !important;
   }
+  .information-box>.content>h2{
+    font-size: 2rem;
+    letter-spacing: 0.75rem;
+    text-transform: uppercase;
+  }
 }
 
 @media only screen and (max-width: 601px) {
@@ -881,9 +949,6 @@ footer a {
     font-size: 1.7rem !important;
     margin: 1.9rem 0 .912rem 0;
   }
-  /*.home-social-post-wrapper>a>.img-wrapper {
-    margin: 1px;
-  }*/
   .social-link {
     letter-spacing: 0px;
     font-weight: 100;
@@ -891,6 +956,19 @@ footer a {
   .btn_group .btn {
     margin-top: 5px;
     width: 100%;
+  }
+
+  section.information-content{
+    margin-bottom: 0;
+    margin-top: 200px;
+  }
+
+  .information-box>.content{
+    text-align: center;
+  }
+
+  .information-box>.content.img-content{
+    display: none;
   }
 }
 

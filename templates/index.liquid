@@ -10,9 +10,7 @@
 <!-- HOME-VIDEO-SECTION -->
 <section id="home-video-section">
   <div class="home-carousel carousel carousel-slider center" data-indicators="true">
-    <div class="carousel-fixed-item center">
-      <a href="/products/green-label-zitrone-ingwer" class="btn waves-effect primary-bg btn-large pulse rounded-btn">ENTDECKE GREEN LABEL</a>
-    </div>
+
     <!-- carousel panel -->
     <div class="carousel-item grey darken-4 white-text" href="#one!">
       <div class="carousel-item-wrapper valign-wrapper">
@@ -21,21 +19,23 @@
         </video>
         <h2 class="video-heading scroll-fade">Entdecke</h2>
         <p class="white-text video-subheading scroll-fade">das ges&uuml;ndeste Getr&auml;nk der Welt!</p>
+        <div class="carousel-fixed-item center">
+          <a href="/products/green-label-zitrone-ingwer" class="btn waves-effect primary-bg btn-large pulse rounded-btn">ENTDECKE GREEN LABEL</a>
+        </div>
       </div>
     </div>
     <!-- !carousel panel -->
 
-    <div class="carousel-item amber white-text" href="#two!">
+    <div class="carousel-item grey darken-4 white-text" href="#one!">
       <div class="carousel-item-wrapper valign-wrapper">
-        <h2 class="video-heading">Entdecke</h2>
-        <p class="white-text video-subheading">das ges&uuml;ndeste Getr&auml;nk der Welt!</p>
-      </div>
-    </div>
-
-    <div class="carousel-item green white-text" href="#three!">
-      <div class="carousel-item-wrapper valign-wrapper">
-        <h2 class="video-heading">Entdecke</h2>
-        <p class="white-text video-subheading">das ges&uuml;ndeste Getr&auml;nk der Welt!</p>
+        <video class="responsive-video fullWidth" poster="{{ 'video-poster.png' | file_url }}" autoplay loop muted playsinline>
+          <source src="{{ 'home-video.mp4' | file_url }}" type="video/mp4">
+        </video>
+        <h2 class="video-heading scroll-fade">Finest</h2>
+        <p class="white-text video-subheading scroll-fade">Irischer Bergamotte Schwarztee</p>
+        <div class="carousel-fixed-item center">
+          <a href="/products/green-label-zitrone-ingwer" class="btn waves-effect primary-bg-black btn-large pulse rounded-btn">ENTDECKE Black LABEL</a>
+        </div>
       </div>
     </div>
 
@@ -43,142 +43,145 @@
 </section>
 <!-- !HOME-VIDEO-SECTION -->
 
-  <!-- HOME-PRODUCT-SECTION -->
-  <section id="home-product-section" class="content-section-inner">
+<!-- HOME-PRODUCT-SECTION -->
+<section id="home-product-section" class="content-section-inner">
 
-    <div class="container">
-      <div class="row">
-        <div class="col s12 center-align section-heading scroll-fade">
-          <h2>Neuerscheinungen</h2>
-          <p>Entdecke unsere neusten Produkte</p>
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="col s12 center-align section-heading scroll-fade">
+        <h2>Neuerscheinungen</h2>
+        <p>Entdecke unsere neusten Produkte</p>
       </div>
+    </div>
 
-      <div class="row">
-        {%- for product in collections['tee'].products -%}
-          <div class="product-wrapper col s12 m6 l6 scroll-fade{% if product.images.size == 1 %} offset-m3 offset-l3 {% endif %}">
-            <a href="{{ product.url }}" class="secondary-textcolor">
-              <div class="product-element">
-                <div class="slideshow-wrapper z-depth-5">
-                  {%- for image in product.images -%}
-                    <img src="{{ image.src | product_img_url: 'large' }}" class="img" alt="">
-                  {%- endfor -%}
-                </div>
-                <div class="product-information z-depth-3">
-                  <p class="product-element-preheading">Premium Tee, Biozertifiziert</p>
-                  <h4 class="product-element-heading">{{ product.title }}</h4>
-                  <div class="product-element-description">{{ product.description | truncate: 200 }}</div>
-                  <div class="divider"></div>
-                  <p class="product-element-interactiongroup">
-                    <span class="product-element-price left-align">ab&nbsp;{{ product.price_min | money }}</span>
-                    <span class="right">
+    <div class="row">
+      {%- for product in collections['tee'].products -%}
+        <div class="product-wrapper col s12 m6 l6 scroll-fade{% if product.images.size == 1 %} offset-m3 offset-l3 {% endif %}">
+          <a href="{{ product.url }}" class="secondary-textcolor">
+            <div class="product-element">
+              <div class="slideshow-wrapper z-depth-5">
+                {%- for image in product.images -%}
+                  <img src="{{ image.src | product_img_url: 'large' }}" class="img" alt="">
+                {%- endfor -%}
+              </div>
+              <div class="product-information z-depth-3">
+                <p class="product-element-preheading">Premium Tee, Biozertifiziert</p>
+                <h4 class="product-element-heading">{{ product.title }}</h4>
+                <div class="product-element-description">{{ product.description}}</div>
+                <div class="divider"></div>
+                <div class="product-element-interactiongroup">
+                  <span class="product-element-price left-align">ab&nbsp;{{ product.price_min | money }}</span>
+                  <div class="right">
                     <span class="product-element-show tooltip"><i class="material-icons pointer primary-hoverable">remove_red_eye</i><span class="tooltiptext">Produkt ansehen</span></span>
-                    <span class="product-element-addtocart tooltip"><i class="material-icons pointer primary-hoverable">shopping_cart</i><span class="tooltiptext">In den Warenkorb</span></span>
-                    </span>
-                  </p>
-                </div>
-              </div>
-            </a>
-          </div>
-        {%- endfor -%}
-
-      </div>
-      <div class="row">
-        <div class="btn_group col s12 m4 offset-m4">
-          <a href="/collections/all" class="btn waves-effect waves-light primary-btn">Alle Produkte</a>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- !HOME-PRODUCT-SECTION -->
-
-  <!-- QUOTE (About us) SECTION -->
-  <section id="home-quote-section" class="content-section-outer quote-section" style="background-image: url({{ 'quote-bg.png' | asset_url }})">
-    <div class="container fullHeight valign-wrapper scroll-fade">
-      <div class="row">
-        <div class="col s12 center-align section-heading white-text">
-          <p>Ideen sind nicht daf&uuml;r gemacht klein zu bleiben.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- !QUOTE (About us) SECTION -->
-
-
-    <!-- HOME-SOCIAL-SECTION -->
-    <section id="home-social-section" class="content-section-inner first">
-      <div class="container">
-        <div class="row">
-          <div class="col s12 center-align section-heading scroll-fade">
-            <h2 style="margin-top: 0px;">join the society</h2>
-            <p>Melde dich jetzt an und erhalte die neusten Informationen</p>
-          </div>
-        </div>
-        {%- unless customer -%}
-        <div class="row scroll-fade">
-          {% form 'customer' %}
-            {{ form.errors | default_errors }}
-
-            {% if form.posted_successfully? %}
-              <div class="newsletter--form col s12">
-                <div class="note form-success">{{ 'general.newsletter_form.newsletter_confirmation' | t }}</div>
-              </div>
-            {% else %}
-
-                <div class="input-field col s12 m4 offset-m4">
-                  <input type="hidden" name="contact[tags]" value="newsletter">
-                  <input id="email" name="contact[email]" type="email" class="validate" autocorrect="off" autocapitalize="off" required>
-                  <label for="email" data-error="Falsche Eingabe" data-success="Erfolgreich!">{{ 'general.newsletter_form.newsletter_email' | t }}</label>
-                </div>
-                <div class="col s12 m4 offset-m4 btn_group">
-                  <button class="btn waves-effect waves-light primary-btn" type="submit" name="commit">
-                          Beitreten
-                          <i class="fa fa-paper-plane right-btn-icon" aria-hidden="true"></i>
-                    </button>
-                </div>
-            {% endif %}
-          {% endform %}
-        </div>
-        {%- endunless -%}
-
-        <div class="row">
-          <div class="col s12">
-            <div class="col s12 home-social-link-wrapper z-depth-3 rounded-corner scroll-fade">
-              <div class="col s6">
-                <p class="center-align"><span><i class="fa fa-instagram fa-lg" aria-hidden="true"></i></span><span><a href="https://www.instagram.com/cupsocietyde/" target="_blank" class="primary-hoverable secondary-textcolor social-link"> cupsocietyde</a></span></p>
-              </div>
-              <div class="col s6">
-                <p class="center-align"><span><i class="fa fa-facebook-square fa-lg" aria-hidden="true"></i></span><span><a href="https://www.facebook.com/cupsocietyde/" target="_blank" class="primary-hoverable secondary-textcolor social-link"> cupsociety</a></span></p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- load instagram app if available, otherwise open web instagram (@cupsocietyde) -->
-        <div id="instafeed" class="row scroll-fade home-social-post-wrapper">
-        </div>
-
-        <div class="row load-instafeed-group">
-          <div class="col s12 m4 offset-m4 btn_group">
-            <button class="btn primary-btn z-depth-3">mehr laden</button>
-          </div>
-          <div class="col s12 center-align hide spinner_group">
-            <div class="preloader-wrapper small active">
-              <div class="spinner-layer spinner-green-only">
-                <div class="circle-clipper left">
-                  <div class="circle"></div>
-                </div>
-                <div class="gap-patch">
-                  <div class="circle"></div>
-                </div>
-                <div class="circle-clipper right">
-                  <div class="circle"></div>
+                      <form action="/collections/all" method="post" enctype="multipart/form-data" id="AddToCartForm" class="form-vertical" style="display: inline-block;">
+                        <button type="submit" class="non-style-btn"><span class="product-element-addtocart tooltip"><i class="material-icons pointer primary-hoverable">shopping_cart</i><span class="tooltiptext">In den Warenkorb</span></span></button>
+                        <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+                      </form>
+                  </div>
                 </div>
               </div>
             </div>
-            <span class="sr-only">Loading...</span>
+          </a>
+        </div>
+      {%- endfor -%}
+
+    </div>
+    <div class="row">
+      <div class="btn_group col s12 m4 offset-m4">
+        <a href="/collections/all" class="btn waves-effect waves-light primary-btn">Alle Produkte</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- !HOME-PRODUCT-SECTION -->
+
+<!-- QUOTE (About us) SECTION -->
+<section id="home-quote-section" class="content-section-outer quote-section" style="background-image: url({{ 'quote-bg.png' | asset_url }})">
+  <div class="container fullHeight valign-wrapper scroll-fade">
+    <div class="row">
+      <div class="col s12 center-align section-heading white-text">
+        <p>Ideen sind nicht daf&uuml;r gemacht klein zu bleiben.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- !QUOTE (About us) SECTION -->
+
+
+<!-- HOME-SOCIAL-SECTION -->
+<section id="home-social-section" class="content-section-inner first">
+  <div class="container">
+    <div class="row">
+      <div class="col s12 center-align section-heading scroll-fade">
+        <h2 style="margin-top: 0px;">join the society</h2>
+        <p>Sei ein Teil von uns und erhalte die neusten Informationen</p>
+      </div>
+    </div>
+    {%- unless customer -%}
+    <div class="row scroll-fade">
+      {% form 'customer' %}
+        {{ form.errors | default_errors }}
+
+        {% if form.posted_successfully? %}
+          <div class="newsletter--form col s12">
+            <div class="note form-success">{{ 'general.newsletter_form.newsletter_confirmation' | t }}</div>
+          </div>
+        {% else %}
+
+            <div class="input-field col s12 m8 offset-m2">
+              <input type="hidden" name="contact[tags]" value="newsletter">
+              <input id="email" name="contact[email]" type="email" class="validate" autocorrect="off" autocapitalize="off" required>
+              <label for="email" data-error="Falsche Eingabe" data-success="Erfolgreich!">{{ 'general.newsletter_form.newsletter_email' | t }}</label>
+            </div>
+            <div class="col s12 m4 offset-m4 btn_group">
+              <button class="btn waves-effect waves-light primary-btn" type="submit" name="commit">
+                      Beitreten
+                      <i class="fa fa-paper-plane right-btn-icon" aria-hidden="true"></i>
+                </button>
+            </div>
+        {% endif %}
+      {% endform %}
+    </div>
+    {%- endunless -%}
+
+    <div class="row">
+      <div class="col s12">
+        <div class="col s12 home-social-link-wrapper z-depth-3 rounded-corner scroll-fade">
+          <div class="col s6">
+            <p class="center-align"><span><i class="fa fa-instagram fa-lg" aria-hidden="true"></i></span><span><a href="https://www.instagram.com/cupsocietyde/" target="_blank" class="primary-hoverable secondary-textcolor social-link"> cupsocietyde</a></span></p>
+          </div>
+          <div class="col s6">
+            <p class="center-align"><span><i class="fa fa-facebook-square fa-lg" aria-hidden="true"></i></span><span><a href="https://www.facebook.com/cupsocietyde/" target="_blank" class="primary-hoverable secondary-textcolor social-link"> cupsociety</a></span></p>
           </div>
         </div>
       </div>
-    </section>
-    <!-- !HOME-SOCIAL-SECTION -->
+    </div>
+
+    <!-- load instagram app if available, otherwise open web instagram (@cupsocietyde) -->
+    <div id="instafeed" class="row scroll-fade home-social-post-wrapper">
+    </div>
+
+    <div class="row load-instafeed-group">
+      <div class="col s12 m4 offset-m4 btn_group">
+        <button class="btn primary-btn z-depth-3">mehr laden</button>
+      </div>
+      <div class="col s12 center-align hide spinner_group">
+        <div class="preloader-wrapper small active">
+          <div class="spinner-layer spinner-green-only">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+              <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- !HOME-SOCIAL-SECTION -->

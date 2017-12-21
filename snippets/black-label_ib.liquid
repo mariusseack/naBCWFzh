@@ -1,0 +1,168 @@
+<!-- /templates/product.liquid -->
+{% comment %}
+
+  https://cupsociety.de/products/green-label-zitrone-ingwer
+
+  Productpage: Black Label - Irish Bergamotte
+
+{% endcomment %}
+
+<section class="tea-template template-header">
+  <div class="parallax-container">
+    <div class="parallax"><img src="{{ 'quote-bg.png' | asset_url }}"></div>
+    <div class="heading-container">
+      <div class="fixed">
+        <h1 class="heading">Black Label</h1>
+        <p class="center-align">Traditioneller & feinster Earl Grey Schwarztee aus Irland</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Buy-section -->
+<section class="content-section-inner tea-template">
+  <div class="product-overview row">
+    <div class="product-picture-wrapper col s12 m6 l6 xl6">
+      <div class="main-productpicture-wrapper pointer center-align">
+        <img src="{{ product.images[0].src | product_img_url: 'large' }}" alt="{{ product.images[0].alt }}" class="main-productpicture">
+      </div>
+
+      <div class="inline-productpicture-wrapper pointer">
+        {% for image in product.images %}
+          {%- if image != product.images[0] -%}
+          <div class="image-element">
+            <img src="{{ image.src | product_img_url: 'small' }}" alt="{{ image.alt }}" class="inline-productpicture">
+          </div>
+          {%- endif -%}
+        {% endfor %}
+      </div>
+    </div>
+    <div class="productinformation-wrapper col s12 m6 l6 xl6 right">
+      <p class="subheading no-margin">Premiumtee aus Deutschland, Biozertifiziert</p>
+      <h4 class="heading">{{product.title}}</h4>
+      <p class="productdescription">{{product.description}}</p>
+      <p class="price"><span id="product_price">{{product.variants[1].price | money }}</span><span class="bio right"><img src="{{ 'bio-siegel.svg' | asset_url}}" alt="bio-siegel"></span></p>
+      <!-- Preis aendern, wenn eine andere Option gewahlt wird -->
+      {{ product.selected_variant.id }}
+      <form action="/cart/add" method="post" enctype="multipart/form-data" class="product-form" id="AddToCartForm">
+        <div class="input-field">
+          <select id="product_select">
+            {%- for variant in product.variants -%}
+              <option value="{{ variant.price | money }}" {%- if variant == product.variants[1] -%}selected{%- endif -%}>{{ variant.option1 }} - {{ variant.price | money }}</option>
+            {%- endfor -%}
+          </select>
+          <label>W&auml;hle eine Variante</label>
+        </div>
+        <button type="submit" class="btn primary-btn-black col s12" name="add" id="AddToCart">In den Warenkorb</button>
+      </form>
+    </div>
+  </div>
+</section>
+<!-- Buy-section -->
+
+<!-- Informationsection -->
+<section class="content-section-outer tea-template black-section info-section no-cart-resize" {%- comment -%}}style="background: url({{ 'tea-template-infosection-green.png' | asset_url }}) bottom center;" {%- endcomment -%}>
+  <img src="{{ 'tea-template-infosection-black.jpg' | asset_url }}" alt="cup society productbackground" class="section-background">
+  <div class="container">
+    <div class="info-wrapper white-text">
+      <div class="main-description scroll-fade">
+        <h4>Warum Gr&uuml;ntee?</h4>
+        <p>Gr&uuml;ner Tee ist einer der ges&uuml;ndesten Getr&auml;nke der Welt. Er soll zum Beispiel neurodegenerative Erkrankungen wie Parkinson und Alzheimer positiv beeinflussen.<br><br>Gr&uuml;ntee ist auch f&uuml;r seine belebende Wirkung bekannt. Er enth&auml;lt Koffein, welcher gut wasserl&ouml;slich ist, wodurch er in den ersten ein bis zwei Minuten der Ziehzeit nahezu komplett aus den Teebl&auml;ttern gel&ouml;st wird. Der zweite Aufguss der bereits einmal verwendeten Teebl&auml;tter ist deutlich koffein&auml;rmer, doch bei einer hochwertigen Qualit&auml;t genauso Geschmacksintensiv.<br><br>Die anregende Wirkung von Tee zeigt sich zudem eher langsam und &uuml;ber l&auml;ngere Zeit und nicht so abrupt wie beim Kaffeegenuss, da die enthaltenen Gerbstoffe die Aufnahme des Koffeins in den K&ouml;rper etwas verlangsamen.</p>
+      </div>
+      <div class="content-box-wrapper row">
+        <div class="content-box col xl6 l6 s12 scroll-fade">
+          <h4>Chung Mee</h4>
+          <p>Chun Mee &uuml;berzeugt durch seine Gerbstoffe, Flavonoide, Catechine, Fluorid und einen sehr hohen Gehalt an Vitamin-C. Damit st&auml;rkt er das Immunsystem und kann dabei helfen Krankheiten zu vermeiden oder vorzubeugen. Der chinesische Gr&uuml;ntee wirkt sich zudem positiv auf den Cholesterinspiegel aus, verringert also so das Risiko f&uuml;r Herz-Kreislauf-Erkrankungen (u.a. Herzinfarkt oder Schlaganfall). Das enthaltende Catechine verhindert die Speicherung von Fett, unterst&uuml;tzt so also die Fettreduktion.</p>
+        </div>
+        <div class="content-box col xl6 l6 s12 scroll-fade">
+          <h4>Sencha</h4>
+          <p>Sencha ist der wirkungsst&auml;rkste Gr&uuml;ntee in der N&auml;hrstoffversorgung. Das wurde wissenschaftlich bewiesen. Sencha entwickelt einen bemerkenswert hohen Gehalt an Aminos&auml;uren, enth&auml;lt wichtige Vitamine, sowie zahlreiche Spurenelemente und Mineralstoffe. Auch das Abnehmen kann mit gr&uuml;nem Tee, und vor allem mit dem Sencha, unterst&uuml;tzt werden. Der gr&uuml;ne Tee kurbelt den Stoffwechsel an, da unterschiedliche Enzyme positiv beeinflusst werden.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Informationsection -->
+
+<!-- Diagramm -->
+<section class="content-section-inner first tea-template diagramm-section" style="padding-bottom: 50px;">
+  <div class="container">
+    <div class="row diagramm-wrapper">
+      <div class="diagramm-image col m12 xl6">
+        <img src="{{ 'koffeindiagramm.png' | asset_url }}" alt="Koffeindiagramm">
+      </div>
+      <div class="diagramm-info col m12 xl6">
+        <h4 class="secondary-textcolor">Koffeinwirkung</h4>
+        <p>Die Wirkung des Koffeins tritt im Vergleich zum Koffein im Kaffe sp&auml;ter ein, h&auml;lt daf&uuml;r aber deutlich l&auml;nger an. Der Gr&uuml;ntee, aber vorallem die Guarana stimulieren das Gehirn sehr konzentriert und helfen so lange Zeit konzentriert zu bleiben.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Diagramm -->
+
+<!-- Ingredientsection -->
+<section class="content-section-outer tea-template black-section info-section no-cart-resize">
+  <img src="{{ 'tea-template-infosection-black.jpg' | asset_url }}" alt="cup society productbackground" class="section-background">
+  <div class="container">
+    <div class="info-wrapper white-text">
+      <div class="main-description scroll-fade">
+        <h4 class="no-margin">Nur das Beste!</h4>
+      </div>
+      <div class="content-box-wrapper row">
+        <div class="content-box col xl4 l12 s12 scroll-fade">
+          <h4><div class="icon" style="background: url({{ 'guarana-icon.png' | asset_url }}) no-repeat;"></div>Guarana</h4>
+          <!-- icon ueber customize laden (shopify) -->
+          <p>Die Guaranafrucht stammt von der gleichnamigen Pflanze aus dem Amazonasgebiet und wird auch Koffein-Liane genannt. Sie ist am bekanntesten f&uuml;r ihre stimulierende und belebende Wirkung, denn sie enth&auml;lt eine sehr hohe Konzentration an Koffein. Des weiteren ist sie reich an pflanzlichen Fetten und Vitaminen und haben neben der stimulierenden Wirkung auch einen satt machenden Effekt. Die Guarana-Kerne enthalten zwischen vier und acht Prozent Koffein welches einem dreimal so hohem Koffeingehalt der Kaffeebohnen entspricht.</p>
+        </div>
+        <div class="content-box col xl4 l12 s12 scroll-fade">
+          <h4><div class="icon" style="background: url({{ 'kurkuma-icon.png' | asset_url }}) no-repeat;"></div>Kurkuma</h4>
+          <p>Kurkuma ist einer der bedeutendsten Heilpflanzen und enth&auml;lt als wirksamen Bestandteil Kurkumin. Es gilt als bedeutende Arznei in der chinesischen und indischen Medizin. Studien haben gezeigt, dass Kurkumin genauso wirksam gegen Entz&uuml;ndungen und Schmerzen ist wie so manch bekanntes Medikament, allerdings ohne deren sch&auml;dliche Nebenwirkungen. Die milde Sch&auml;rfe die die Kurkuma abgibt unterst&uuml;tzt harmoniert mit dem Ingwer in diesem Tee.</p>
+        </div>
+        <div class="content-box col xl4 l12 s12 scroll-fade">
+          <h4><div class="icon" style="background: url({{ 'aronia-icon.png' | asset_url }}) no-repeat;"></div>Aronia</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+            irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Ingredientsection -->
+
+<!-- Preparationsection -->
+<section class="content-section-outer tea-template preparationsection no-cart-resize">
+  <div class="container">
+    <div class="preparation-wrapper scroll-fade row fullWidth center-align">
+      <div class="preparation-element col s4">
+        <i class="fa fa-clock-o fa-4x" aria-hidden="true"></i>
+        <p>2-4 min</p>
+      </div>
+      <div class="preparation-element col s4">
+        <i class="fa fa-thermometer-three-quarters fa-4x" aria-hidden="true"></i>
+        <p>70 &deg;C</p>
+      </div>
+      <div class="preparation-element col s4">
+        <i class="fa fa-spoon fa-4x" aria-hidden="true"></i>
+        <p>2-4g (250ml)</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Preparationsection -->
+
+<!-- Support -->
+<div class="hide-on-med-and-down support">
+  <!-- Element Showed -->
+  <div class="fixed-action-btn">
+    <a id="menu" class="btn btn-floating btn-large primary-bg" onclick="$('.tap-target').tapTarget('open');"><i class="material-icons">question_answer</i></a>
+  </div>
+
+  <!-- Tap Target Structure -->
+  <div class="tap-target primary-container" data-activates="menu">
+    <div class="tap-target-content">
+      <h5>Sie haben Fragen?</h5>
+      <p>Kontaktieren Sie und einfach &uuml;ber support@cupsociety.de<br><br>Ihr Cup Society Team</p>
+    </div>
+  </div>
+</div>
+<!-- !Support -->
