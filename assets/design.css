@@ -2,7 +2,7 @@
 
 body {
   /*font-family: 'Raleway', sans-serif;*/
-  font-family: 'rawline', sans-serif; 
+  font-family: 'rawline', sans-serif;
 }
 
 .roboto{
@@ -509,18 +509,22 @@ nav ul a i {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
+  flex: 0 0 auto;
 }
 
 .cart-product-description {
   margin-left: 10px;
+  margin-right: 10px;
+  flex: 1 1 100%;
 }
 
-.cart-element:hover .cart-product-description, .cart-element:hover .cart-price {
-  font-weight: 700;
+.cart-price {
+  flex: 0 0 auto;
 }
 
 .delete-cartitem {
   margin-right: 10px;
+  flex: 0 0 auto;
 }
 
 .delete-hover {
