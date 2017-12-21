@@ -53,7 +53,12 @@
           </select>
           <label>W&auml;hle eine Variante</label>
         </div>
-        <button type="submit" class="btn primary-btn col s12" name="add" id="AddToCart">In den Warenkorb</button>
+        <button class="non-style-btn btn-addtocart" data-item-id="{{ product.variants.first.id }}">
+          <span class="product-element-addtocart tooltip">
+            <i class="material-icons pointer primary-hoverable">shopping_cart</i>
+            <span class="tooltiptext">In den Warenkorb</span>
+          </span>
+        </button>
       </form>
     </div>
   </div>

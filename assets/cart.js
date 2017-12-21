@@ -24,6 +24,12 @@ $(".delete-cartitem").hover(function() {
 $("#cart-btn").click(function() {
   openCart();
 });
+//open button trigger
+$(".btn-addtocart").click(function(e) {
+  e.preventDefault();
+  addToCart($(this).data('itemId'), 1);
+  return false;
+});
 
 function closeCart() {
   $("body").removeClass("stop-scrolling open-cart");
@@ -61,7 +67,7 @@ function hoverDeleteicon(item) {
 }
 
 function updateCart() {
-  $.getJSON('/cart.js')
+  return $.getJSON('/cart.js')
     .done(function(data) {
       const $_cart = $('.cart-element-wrapper');
       $_cart.empty();
@@ -93,6 +99,17 @@ function updateCart() {
       }
     })
     .fail(function(jqxhr, textStatus, error) {
+    });
+}
+
+function addToCart(itemId, amount) {
+  $.getJSON('/cart/add.js', { quantity: amount, id: itemId })
+    .done(function(data) {
+        updateCart()
+          .done(openCart);
+    })
+    .fail(function(jqxhr, textStatus, error) {
+      swal()
     });
 }
 

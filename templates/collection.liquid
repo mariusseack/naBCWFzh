@@ -42,11 +42,12 @@
                   <span class="product-element-price left-align">ab&nbsp;{{ product.price_min | money }}</span>
                   <div class="right">
                     <span class="product-element-show tooltip"><i class="material-icons pointer primary-hoverable">remove_red_eye</i><span class="tooltiptext">Produkt ansehen</span></span>
-
-                      <form action="/collections/all" method="post" enctype="multipart/form-data" id="AddToCartForm" class="form-vertical" style="display: inline-block;">
-                        <button type="submit" class="non-style-btn"><span class="product-element-addtocart tooltip"><i class="material-icons pointer primary-hoverable">shopping_cart</i><span class="tooltiptext">In den Warenkorb</span></span></button>
-                        <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
-                      </form>
+                    <button class="non-style-btn btn-addtocart" data-item-id="{{ product.variants.first.id }}">
+                      <span class="product-element-addtocart tooltip">
+                        <i class="material-icons pointer primary-hoverable">shopping_cart</i>
+                        <span class="tooltiptext">In den Warenkorb</span>
+                      </span>
+                    </button>
                   </div>
                 </div>
               </div>
