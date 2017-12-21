@@ -72,6 +72,9 @@ function updateCart() {
       const $_cart = $('.cart-element-wrapper');
       $_cart.empty();
 
+      $('#CartCost').text((data.total_price / 100).formatMoney(2, ',', '.') + ' €');
+      $('.cart-sum-price').text((data.total_price / 100).formatMoney(2, ',', '.') + ' €');
+
       if (data.items.length <= 0) {
         //hide the sum and 'go to cart' button
         $('.cart-container').find('.cart-sum').hide().next().hide();
