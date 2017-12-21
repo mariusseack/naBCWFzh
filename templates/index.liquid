@@ -54,9 +54,9 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row flex-container flex-wrap">
       {%- for product in collections['frontpage'].products -%}
-        <div class="product-wrapper col s12 m6 l6 scroll-fade{% if product.images.size == 1 %} offset-m3 offset-l3 {% endif %}">
+        <div class="product-wrapper col s12 m6 l6 scroll-fade{% if collection.products_count == 1 %} offset-m3 offset-l3 {% endif %}">
           <a href="{{ product.url }}" class="secondary-textcolor">
             <div class="product-element">
               <div class="slideshow-wrapper z-depth-5">
