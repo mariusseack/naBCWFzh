@@ -426,13 +426,13 @@ nav ul a i {
   align-content: flex-start;
   flex-wrap: wrap;
   height: 100vh;
-  width: 550px;
+  width: 600px;
   padding: 1rem;
   top: 0;s
   bottom: 0;
   border-left: solid 1px #fefefe;
   z-index: 1001;
-  right: -550px;
+  right: -600px;
   transition: right .5s ease-in;
   -ms-transition: right .5s ease-in-out;
   -moz-transition: right .5s ease-in-out;
@@ -486,8 +486,9 @@ nav ul a i {
   -o-transition: border-left 300ms ease;
 }
 
-.cart-element:hover p, .order-element:hover p {
+.cart-element>.cart-price, .order-element>.cart-price {
   color: #004225;
+  font-weight: 600;
 }
 
 .cart-productimg, .order-element>.img {
@@ -516,6 +517,15 @@ nav ul a i {
   margin-left: 10px;
   margin-right: 10px;
   flex: 1 1 100%;
+  font-weight: 500;
+}
+
+.cart-amount-description {
+    color: #333;
+    font-weight: 600;
+}
+.cart-name-description {
+    font-weight: 500;
 }
 
 .cart-price {
