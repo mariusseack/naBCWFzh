@@ -64,7 +64,15 @@
                 {%- endfor -%}
               </div>
               <div class="product-information z-depth-3">
-                <p class="product-element-preheading">Premium Tee, Biozertifiziert</p>
+                <p class="product-element-preheading">
+                  {% for col in product.collections %}
+                  {%- if col.title == "Tee" -%}
+                    Premium Tee, Biozertifiziert
+                  {%- elsif col.title == "Accessoires" -%}
+                    Exklusiv & Hochwertig
+                  {%- endif -%}
+                  {%- endfor -%}
+                </p>
                 <h4 class="product-element-heading">{{ product.title }}</h4>
                 <div class="product-element-description">{{ product.description}}</div>
                 <div class="divider"></div>
