@@ -46,8 +46,8 @@ $(document).ready(function() {
 
   //update product-price display
   $('#product_select').change(function(){
-    var val = $(this).children('option:checked').val();
-    $('#product_price').replaceWith('<span id="product_price">' + val + '</span>');
+    var price = $(this).children('option:checked').data('price');
+    $('#product_price').replaceWith('<span id="product_price">' + price + '</span>');
   });
 
 });

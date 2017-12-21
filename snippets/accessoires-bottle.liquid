@@ -44,17 +44,15 @@
       <p class="price"><span id="product_price">{{product.variants[0].price | money }}</span></p>
       <!-- Preis aendern, wenn eine andere Option gewahlt wird -->
       {{ product.selected_variant.id }}
-      <form action="/cart/add" method="post" enctype="multipart/form-data" class="product-form" id="AddToCartForm">
-        <div class="input-field">
-          <select id="product_select">
-            {%- for variant in product.variants -%}
-              <option value="{{ variant.price | money }}" {%- if variant == product.variants[0] -%}selected{%- endif -%}>{{ variant.option1 }} - {{ variant.price | money }}</option>
-            {%- endfor -%}
-          </select>
-          <label>W&auml;hle eine Variante</label>
-        </div>
-        <button type="submit" class="btn primary-btn-black col s12" name="add" id="AddToCart">In den Warenkorb</button>
-      </form>
+      <div class="input-field">
+        <select id="product_select">
+          {%- for variant in product.variants -%}
+            <option value="{{ variant.id }}" data-price="{{ variant.price | money }}" {%- if variant == product.variants[0] -%}selected{%- endif -%}>{{ variant.option1 }} - {{ variant.price | money }}</option>
+          {%- endfor -%}
+        </select>
+        <label>W&auml;hle eine Variante</label>
+      </div>
+      <button type="submit" class="btn primary-btn-black col s12 btn-addtocart" name="add" id="AddToCart" data-item-id="{{ product.variants.first.id }}">In den Warenkorb</button>
     </div>
   </div>
 </section>

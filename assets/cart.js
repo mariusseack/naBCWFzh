@@ -27,7 +27,13 @@ $("#cart-btn").click(function() {
 //open button trigger
 $(".btn-addtocart").click(function(e) {
   e.preventDefault();
-  addToCart($(this).data('itemId'), 1);
+  let variantId;
+  if ($('#product_select').length) {
+    variantId = $('#product_select').val();
+  } else {
+    variantId = $(this).data('itemId');
+  }
+  addToCart(variantId, 1);
   return false;
 });
 
@@ -56,7 +62,7 @@ function deleteCartitem(deletebtn) {
       setTimeout(updateCart, 300);
     })
     .fail(function(jqxhr, textStatus, error) {
-      console.log(error);
+      swal("Ups!", 'Es ist etwas schief gelaufen, bitte versuchen Sie es erneute.', "error");
     });
 }
 
@@ -95,7 +101,7 @@ function updateCart() {
                 <span class="cart-amount-description">'+ item.quantity +'x</span> \
                 <span class="cart-name-description"><a href="'+ item.url +'" class="secondary-textcolor">'+ item.title +'</a></span> \
               </p> \
-              <p class="cart-price center-align">'+ (item.price / 100).formatMoney(2, ',', '.') +' &euro;</p> \
+              <p class="cart-price center-align">'+ (item.price / 100).formatMoney(2, ',', '.') +'&nbsp;&euro;</p> \
               <i class="delete-cartitem material-icons secondary-textcolor pointer">close</i> \
             </div>');
         });
@@ -112,7 +118,7 @@ function addToCart(itemId, amount) {
           .done(openCart);
     })
     .fail(function(jqxhr, textStatus, error) {
-      swal()
+      swal("Ups!", 'Es ist etwas schief gelaufen, bitte versuchen Sie es erneute.', "error");
     });
 }
 
