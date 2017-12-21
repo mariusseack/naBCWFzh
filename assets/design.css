@@ -1,7 +1,12 @@
 /*  custom design  */
 
 body {
-  font-family: 'Raleway', sans-serif;
+  /*font-family: 'Raleway', sans-serif;*/
+  font-family: 'rawline', sans-serif; 
+}
+
+.roboto{
+  font-family: 'Roboto', sans-serif;
 }
 
 /*  colors  */
@@ -904,6 +909,12 @@ footer a {
     font-size: 2rem;
     letter-spacing: 0.75rem;
     text-transform: uppercase;
+  }
+}
+
+@media only screen and (max-width: 992px){
+  .flex-container>.product-wrapper{
+    margin-bottom: 50px;
   }
 }
 

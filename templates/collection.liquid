@@ -14,7 +14,7 @@
         <p>Entdecke unsere exklusiven Tees & Zubeh&ouml;r</p>
       </div>
     </div>
-    <div class="row flex-container">
+    <div class="row flex-container" style="flex-wrap: wrap;">
       {% assign products = collections['all'].products %}
       {%- for product in products -%}
         <div class="product-wrapper col s12 m12 l6 scroll-fade">
