@@ -57,7 +57,7 @@
 
                     {%- if form.errors -%}
                       <script type="text/javascript">
-                        $(function() { swal("Mmmh...", '{{ form.errors | default_errors }}', "error"); });
+                        $(function() { swal("Mmmh...", 'Ungültige Eingabe', "error"); });
                       </script>
                     {%- endif -%}
 

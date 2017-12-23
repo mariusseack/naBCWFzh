@@ -182,7 +182,7 @@ templates/customers/activate_account.liquid:
 templates/customers/addresses.liquid:
   development: 2017-12-22T14:13:30+01:00   eb431b6a2cf1739805a5b29e29bc2960
 templates/customers/login.liquid:
-  development: 2017-12-23T12:18:48+01:00   119f0110ec72aca17c267911b21e6ef0
+  development: 2017-12-23T13:13:36+01:00   0a520f9a9a947212e6ce1b4cde41d55e
 templates/customers/order.liquid:
   development: 2017-12-19T20:18:27+01:00   e3ec01e9286bf4daa7b5a3a7bbe8479c
 templates/customers/register.liquid:
