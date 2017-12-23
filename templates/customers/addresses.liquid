@@ -108,7 +108,7 @@
                   <input type="submit" class="btn  primary-btn" value="Aktualisierung">
                 </div>
                 <div class="btn_group col s12 m6">
-                  <a class="btn  primary-btn">Abbrechen</a>
+                  <a class="btn  primary-btn" onclick="Shopify.CustomerAddress.toggleForm({{address.id}});return false">Abbrechen</a>
                 </div>
                 {% endform %}
               </div>
@@ -175,7 +175,7 @@
         <a href="/account" class="btn primary-btn col s12 relative"><i class="material-icons absolute" style="left: .75rem;">keyboard_arrow_left</i>Zur&uuml;ck</a>
       </div>
       <div class="col s12 m6 btn_group">
-        <a href="account/logout" class="btn primary-btn col s12">Ausloggen</a>
+        <a href="/account/logout" class="btn primary-btn col s12">Ausloggen</a>
       </div>
     </div>
 

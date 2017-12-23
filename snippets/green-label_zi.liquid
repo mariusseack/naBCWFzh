@@ -9,7 +9,7 @@
 
 <section class="tea-template template-header">
   <div class="parallax-container">
-    <div class="parallax"><img src="{{ 'quote-bg.png' | asset_url }}"></div>
+    <div class="parallax"><img src="{{ 'tea-template-greenlabel-bg.png' | asset_url }}"></div>
     <div class="heading-container">
       <div class="fixed">
         <h1 class="heading">Green Label</h1>
@@ -43,7 +43,6 @@
       <p class="productdescription">{{product.description}}</p>
       <p class="price"><span id="product_price">{{product.variants[0].price | money }}</span><span class="bio right"><img src="{{ 'bio-siegel.svg' | asset_url}}" alt="bio-siegel"></span></p>
       <!-- Preis aendern, wenn eine andere Option gewahlt wird -->
-      {{ product.selected_variant.id }}
         <div class="input-field">
           <select id="product_select">
             {%- for variant in product.variants -%}
@@ -59,8 +58,8 @@
 <!-- Buy-section -->
 
 <!-- Informationsection -->
-<section class="content-section-outer tea-template green-section info-section no-cart-resize" {%- comment -%}}style="background: url({{ 'tea-template-infosection-green.png' | asset_url }}) bottom center;" {%- endcomment -%}>
-  <img src="{{ 'tea-template-infosection-green.png' | asset_url }}" alt="cup society productbackground" class="section-background">
+<section class="content-section-outer tea-template green-section info-section no-cart-resize">
+  <img src="{{ 'tea-template-greenlabel-bg.png' | asset_url }}" alt="cup society productbackground" class="section-background">
   <div class="container">
     <div class="info-wrapper white-text">
       <div class="main-description scroll-fade">
@@ -100,7 +99,7 @@
 
 <!-- Ingredientsection -->
 <section class="content-section-outer tea-template green-section info-section no-cart-resize">
-  <img src="{{ 'tea-template-infosection-green.png' | asset_url }}" alt="cup society productbackground" class="section-background">
+  <img src="{{ 'tea-template-greenlabel-bg.png' | asset_url }}" alt="cup society productbackground" class="section-background">
   <div class="container">
     <div class="info-wrapper white-text">
       <div class="main-description scroll-fade">
@@ -141,7 +140,7 @@
       </div>
       <div class="preparation-element col s4">
         <i class="fa fa-spoon fa-4x" aria-hidden="true"></i>
-        <p>2-4g (250ml)</p>
+        <p>1-2 TL (250ml)</p>
       </div>
     </div>
   </div>

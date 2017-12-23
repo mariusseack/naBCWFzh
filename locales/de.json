@@ -15,7 +15,8 @@
     "newsletter_form": {
       "newsletter_email": "email@beispiel.com",
       "submit": "Abonnieren",
-      "confirmation": "Danke fürs Anmelden"
+      "confirmation": "Vielen Dank für deine Anmeldung",
+      "newsletter_confirmation": "Vielen Dank für deine Anmeldung"
     },
     "search": {
       "no_results_html": "Ihre Suche nach \"{{ terms }}\" hat keine Ergebnisse hervorgebracht.",

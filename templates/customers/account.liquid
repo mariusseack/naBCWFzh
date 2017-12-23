@@ -41,7 +41,7 @@
                         {%- for item in order.line_items -%}
                         <div class="order-element hoverable z-depth-2">
                           <div class="img hide-on-small-only" style="background-image: url('{{ item.image | img_url: 'small' }}');"></div>
-                          <p class="product-info fullWidth">{{item.quantity}}x {{item.title}}<span class="right">{{item.price | money}}</span></p>
+                          <p class="product-info fullWidth">{{item.quantity}}x {{item.title}} {%- if item.variant -%} ({{item.variant}}) {%- endif -%}<span class="right">{{item.price | money}}</span></p>
                         </div>
                         {%- endfor -%}
                       </div>

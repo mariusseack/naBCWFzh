@@ -203,6 +203,11 @@ a, .btn, .pointer {
   position: absolute;
 }
 
+.read-text{
+  line-height: 1.4;
+  font-size: 1.2rem;
+}
+
 img {
   pointer-events: none;
   max-width: 100%;
@@ -222,6 +227,10 @@ img.img {
 
 .support>.tap-target-wrapper>.tap-target>.tap-target-content {
   padding-left: 100px !important;
+}
+
+.quote-section>.parallax-container{
+  height: 100%;
 }
 
 [type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:before, [type="radio"].with-gap:checked+label:after {

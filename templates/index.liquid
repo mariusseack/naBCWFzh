@@ -54,7 +54,7 @@
       </div>
     </div>
 
-    <div class="row flex-container flex-wrap">
+    <div class="row flex-container flex-wrap" style="margin-bottom: 50px;">
       {%- for product in collections['frontpage'].products -%}
         <div class="product-wrapper col s12 m6 l6 scroll-fade{% if collection.products_count == 1 %} offset-m3 offset-l3 {% endif %}">
           <a href="{{ product.url }}" class="secondary-textcolor">
@@ -97,7 +97,7 @@
     </div>
     <div class="row">
       <div class="btn_group col s12 m4 offset-m4">
-        <a href="/collections/all" class="btn waves-effect waves-light primary-btn">Alle Produkte</a>
+        <a href="/collections/all" class="btn primary-btn">Alle Produkte</a>
       </div>
     </div>
   </div>
@@ -105,8 +105,11 @@
 <!-- !HOME-PRODUCT-SECTION -->
 
 <!-- QUOTE (About us) SECTION -->
-<section id="home-quote-section" class="content-section-outer quote-section" style="background: url({{ 'quote-bg.png' | asset_url }}) center center fixed;">
-  <div class="container fullHeight valign-wrapper scroll-fade">
+<section id="home-quote-section" class="content-section-outer quote-section relative">
+  <div class="parallax-container">
+    <div class="parallax"><img src="{{ 'quote-bg.png' | asset_url }}"></div>
+  </div>
+  <div class="container fullHeight valign-wrapper scroll-fade absolute" style="top: 0; right: 0; left: 0; bottom: 0;">
     <div class="row">
       <div class="col s12 center-align section-heading white-text">
         <p>Ideen sind nicht daf&uuml;r gemacht klein zu bleiben.</p>
@@ -132,7 +135,7 @@
         {{ form.errors | default_errors }}
 
         {% if form.posted_successfully? %}
-          <div class="newsletter--form col s12">
+          <div class="newsletter--form col s12 center-align">
             <div class="note form-success">{{ 'general.newsletter_form.newsletter_confirmation' | t }}</div>
           </div>
         {% else %}
