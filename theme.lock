@@ -22,7 +22,7 @@ assets/custom.js:
 assets/customer-account.css:
   development: 2017-12-19T03:22:40+01:00   dc2cd71f84ca21e05dcc86b587363395
 assets/design.css:
-  development: 2017-12-22T13:58:20+01:00   87ea336cd069f0388cd5965d858b5291
+  development: 2017-12-23T12:09:18+01:00   3ee1141229c360a9e1ef6691f0bab02f
 assets/fastclick.min.js:
   development: 2017-12-19T20:18:28+01:00   4c68290ccc4d503561895dff0821621f
 assets/favicon.png:
@@ -125,6 +125,8 @@ locales/pt-BR.json:
   development: 2017-12-19T20:50:57+01:00   3bc832b43077ef1681f2fe4be3eda8c9
 locales/pt-PT.json:
   development: 2017-12-19T20:51:20+01:00   6ddf443592f389ff55aa739569736f47
+snippets/404_snippet.liquid:
+  development: 2017-12-23T12:34:31+01:00   aabde4391325f1025449833acc1a0294
 snippets/accessoires-bottle.liquid:
   development: 2017-12-22T15:06:49+01:00   36abe8d7f43bfd64ae8e6a6cc52a0c92
 snippets/ajax-cart-template.liquid:
@@ -162,9 +164,9 @@ snippets/social-meta-tags.liquid:
 snippets/tags-article.liquid:
   development: 2017-12-19T20:18:31+01:00   52bc59a44a51be2f1745559c2ba514a2
 templates/404.liquid:
-  development: 2017-12-19T20:18:39+01:00   44a6b0129de575e7085a047bc2096a76
+  development: 2017-12-23T12:31:07+01:00   2455e5ad0de9d2aacadfaef70e38c5e6
 templates/article.liquid:
-  development: 2017-12-19T20:18:29+01:00   ff67120cd7978f6390cdb79827f34d02
+  development: 2017-12-23T12:35:30+01:00   9c6c393216247363a1755e6706a39c6c
 templates/blog.liquid:
   development: 2017-12-19T20:18:35+01:00   2d2ff4bd1bf2ef7ce2b889d6a95c6f74
 templates/cart.liquid:
@@ -180,13 +182,13 @@ templates/customers/activate_account.liquid:
 templates/customers/addresses.liquid:
   development: 2017-12-22T14:13:30+01:00   eb431b6a2cf1739805a5b29e29bc2960
 templates/customers/login.liquid:
-  development: 2017-12-19T20:34:27+01:00   ef27976ffbc94f4c2bd6ffb20c40dbbf
+  development: 2017-12-23T12:18:48+01:00   119f0110ec72aca17c267911b21e6ef0
 templates/customers/order.liquid:
   development: 2017-12-19T20:18:27+01:00   e3ec01e9286bf4daa7b5a3a7bbe8479c
 templates/customers/register.liquid:
   development: 2017-12-19T20:18:24+01:00   77a294477ea2d6de5861f583e2a05051
 templates/customers/reset_password.liquid:
-  development: 2017-12-19T20:18:33+01:00   66ba7b680ca26b2eba0f162d4122d94c
+  development: 2017-12-23T11:37:35+01:00   86e7d1a57bdd7cdb8530ecd435f627f6
 templates/gift_card.liquid:
   development: 2017-12-19T20:18:15+01:00   c1ae0f8232e003fac57213d1353e513c
 templates/index.liquid:

@@ -11,11 +11,12 @@
 
 {% endcomment %}
 
+{%- include '404_snippet' -%}
+
+{%- comment %}
 {% assign number_of_comments = article.comments_count %}
 
-{% comment %}
-  If a comment was just submitted and it has no blank fields, we have an extra comment to count.
-{% endcomment %}
+
 {% if comment and comment.created_at %}
   {% assign number_of_comments = article.comments_count | plus: 1 %}
 {% endif %}
@@ -39,16 +40,10 @@
       {{ article.content }}
     </div>
 
-    {% comment %}
-      Show off meta information like comments and tags.
-    {% endcomment %}
     <ul class="inline-list">
       {% include 'tags-article' %}
     </ul>
 
-    {% comment %}
-      Create links to the next and previous articles, if available.
-    {% endcomment %}
     {% if blog.next_article or blog.previous_article %}
       <hr>
       <p class="clearfix">
@@ -72,13 +67,9 @@
 
       <hr>
 
-      {% comment %}
-        Just like blog.liquid page, define how many comments should be on each page.
-      {% endcomment %}
+
       {% paginate article.comments by 5 %}
-        {% comment %}
-          #comments is required, it is used as an anchor link by Shopify.
-        {% endcomment %}
+
         <div id="comments">
 
           {% if comment and comment.created_at %}
@@ -93,18 +84,13 @@
 
           {% if number_of_comments > 0 %}
             <ul class="no-bullets">
-              {% comment %}
-                If a comment was just submitted with no blank field, show it.
-              {% endcomment %}
+
               {% if comment and comment.created_at %}
                 <li id="{{ comment.id }}" class="comment first{% if article.comments_count == 0 %} last{% endif %}">
                   {% include 'comment' %}
                 </li>
               {% endif %}
 
-              {% comment %}
-                Showing the rest of the comments.
-              {% endcomment %}
               {% for comment in article.comments %}
                 <li id="{{ comment.id }}" class="comment{% unless number_of_comments > article.comments_count %}{% if forloop.first %} first{% endif %}{% endunless %}{% if forloop.last %} last {% endif %}">
                   {% include 'comment' %}
@@ -168,3 +154,4 @@
     {% include 'blog-sidebar' %}
   </aside>
 </div>
+{% endcomment %}

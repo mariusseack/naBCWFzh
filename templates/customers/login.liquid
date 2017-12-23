@@ -25,13 +25,13 @@
                       {%- endif -%}
                       <div class="row">
                         <div class="input-field col s12 m6">
-                          <input id="email" type="email" name="customer[email]" class="validate input-full{% if form.errors contains 'email' %} error{% endif %}" autocorrect="off" autocapitalize="off" autofocus>
+                          <input id="login_email" type="email" name="customer[email]" class="validate input-full{% if form.errors contains 'email' %} error{% endif %}" autocorrect="off" autocapitalize="off" autofocus>
                           <label for="email" data-error="Falsche Eingabe" data-success="Erfolgreich!">{{ 'customer.login.email' | t }}</label>
                         </div>
                         <div class="input-field col s12 m6">
                           {% if form.password_needed %}
                             <label for="password" class="hidden-label">{{ 'customer.login.password' | t }}</label>
-                            <input type="password" value="" name="customer[password]" id="password" class="validate input-full{% if form.errors contains 'password' %} error{% endif %}">
+                            <input type="password" value="" name="customer[password]" id="login_password" class="validate input-full{% if form.errors contains 'password' %} error{% endif %}">
                           {% endif %}
                         </div>
                       </div>
@@ -57,7 +57,7 @@
 
                     {%- if form.errors -%}
                       <script type="text/javascript">
-                        $(function() { swal("Ups!", '{{ form.errors | default_errors }}', "error"); });
+                        $(function() { swal("Mmmh...", '{{ form.errors | default_errors }}', "error"); });
                       </script>
                     {%- endif -%}
 
@@ -98,35 +98,24 @@
             </div>
           </li>
           <li>
-            <div class="collapsible-header"><i class="material-icons">announcement</i>Anmeldedaten vergessen?</div>
+            <div class="collapsible-header"><i class="material-icons">announcement</i>Passwort vergessen?</div>
             <div class="collapsible-body">
               <div class="row">
                 <div class="col s12">
-                  {% form 'reset_customer_password' %}
-
-                    {{ form.errors | default_errors }}
-
-                    <p>{{ 'customer.reset_password.subtext' | t: email: email }}</p>
-
+                  <form method="post" action="/account/recover" accept-charset="UTF-8"><input type="hidden" value="recover_customer_password" name="form_type"><input type="hidden" name="utf8" value="✓">
+                    <p>Geben Sie die Emailadresse f&uuml;r Ihren Account ein.</p>
                     <div class="row">
                       <div class="input-field col s12">
-                        <label for="ResetPassword" class="hidden-label">{{ 'customer.reset_password.password' | t }}</label>
-                        <input type="password" value="" name="customer[password]" id="ResetPassword" class="input-full{% if form.errors contains 'password' %} error{% endif %}">
+                        <label for="RecoverEmail" class="hidden-label">E-Mail</label>
+                        <input type="email" value="" name="email" id="RecoverEmail" class="input-full" autocorrect="off" autocapitalize="off" autocomplete="off">
                       </div>
                     </div>
                     <div class="row">
-                      <div class="input-field col s12">
-                        <label for="PasswordConfirmation" class="hidden-label">{{ 'customer.reset_password.password_confirm' | t }}</label>
-                        <input type="password" value="" name="customer[password_confirmation]" id="PasswordConfirmation" class="input-full{% if form.errors contains 'password_confirmation' %} error{% endif %}">
+                      <div class="btn_group col s12 m4 offset-m4">
+                        <input class="btn primary-btn" type="submit" value="Absenden" id="HideRecoverPasswordLink">
                       </div>
                     </div>
-                    <div class="row">
-                      <div class="col s12 m4 offset-m4 btn_group">
-                        <button class="btn waves-effect waves-light primary-btn" type="submit" value="{{ 'customer.reset_password.submit' | t }}">Zur&uuml;cksetzen<i class="fa fa-sign-in right-btn-icon" aria-hidden="true"></i></button>
-                      </div>
-                    </div>
-
-                  {% endform %}
+                  </form>
                 </div>
               </div>
             </div>
@@ -137,6 +126,23 @@
   </div>
 </section>
 <!-- !CONTENT -->
+
+<!-- Support -->
+<div class="hide-on-med-and-down support">
+  <!-- Element Showed -->
+  <div class="fixed-action-btn">
+    <a id="menu" class="btn btn-floating btn-large primary-bg" onclick="$('.tap-target').tapTarget('open');"><i class="material-icons">question_answer</i></a>
+  </div>
+
+  <!-- Tap Target Structure -->
+  <div class="tap-target primary-container" data-activates="menu">
+    <div class="tap-target-content">
+      <h5>Sie haben Fragen?</h5>
+      <p>Kontaktieren Sie und einfach &uuml;ber support@cupsociety.de<br><br>Ihr Cup Society Team</p>
+    </div>
+  </div>
+</div>
+<!-- !Support -->
 
     {% comment %}
       If accounts are set as optional, the following will be shown as an option
