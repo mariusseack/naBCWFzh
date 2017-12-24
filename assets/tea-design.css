@@ -73,12 +73,26 @@ section.tea-template, footer {
   margin-right: auto;
 }
 
+.product-overview>.product-picture-wrapper>.main-productpicture-wrapper{
+  margin-bottom: 2.5rem;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-overview>.product-picture-wrapper>.main-productpicture-wrapper>.main-productpicture{
+  max-height: 100%;
+  height: auto;
+}
+
 .product-overview>.product-picture-wrapper>.inline-productpicture-wrapper {
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
+  padding: 0.75rem 0;
 }
 
 .product-overview>.productinformation-wrapper {

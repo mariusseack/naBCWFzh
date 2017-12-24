@@ -9,7 +9,7 @@
 
 <section class="tea-template template-header">
   <div class="parallax-container">
-    <div class="parallax"><img src="{{ 'tea-template-greenlabel-bg.png' | asset_url }}"></div>
+    <div class="parallax"><img src="{{ 'tea-template-greenlabel-bg.png' | file_url }}"></div>
     <div class="heading-container">
       <div class="fixed product-heading">
         <h1 class="heading">Green Label</h1>
@@ -23,7 +23,7 @@
 <section class="content-section-inner tea-template">
   <div class="product-overview row">
     <div class="product-picture-wrapper col s12 m6 l6 xl6">
-      <div class="main-productpicture-wrapper pointer center-align">
+      <div class="main-productpicture-wrapper pointer center-align no-margin">
         <img src="{{ product.images[0].src | product_img_url: 'large' }}" alt="{{ product.images[0].alt }}" class="main-productpicture">
       </div>
 
@@ -41,7 +41,7 @@
       <p class="subheading no-margin">Premiumtee aus Deutschland, Biozertifiziert</p>
       <h4 class="heading">{{product.title}}</h4>
       <p class="productdescription">{{product.description}}</p>
-      <p class="price"><span id="product_price">{{product.variants[0].price | money }}</span><span class="bio right"><img src="{{ 'bio-siegel.svg' | asset_url}}" alt="bio-siegel"></span></p>
+      <p class="price"><span id="product_price">{{product.variants[0].price | money }}</span><span class="bio right"><img src="{{ 'bio-siegel.svg' | file_url}}" alt="bio-siegel"></span></p>
       <!-- Preis aendern, wenn eine andere Option gewahlt wird -->
         <div class="input-field">
           <select id="product_select">
@@ -59,7 +59,7 @@
 
 <!-- Informationsection -->
 <section class="content-section-outer tea-template green-section info-section no-cart-resize">
-  <img src="{{ 'tea-template-greenlabel-bg.png' | asset_url }}" alt="cup society productbackground" class="section-background">
+  <img src="{{ 'tea-template-greenlabel-bg.png' | file_url }}" alt="cup society productbackground" class="section-background">
   <div class="container">
     <div class="info-wrapper white-text">
       <div class="main-description scroll-fade">
@@ -86,7 +86,7 @@
   <div class="container">
     <div class="row diagramm-wrapper">
       <div class="diagramm-image col m12 xl6">
-        <img src="{{ 'koffeindiagramm.png' | asset_url }}" alt="Koffeindiagramm">
+        <img src="{{ 'koffeindiagramm.png' | file_url }}" alt="Koffeindiagramm">
       </div>
       <div class="diagramm-info col m12 xl6">
         <h4 class="secondary-textcolor">Koffeinwirkung</h4>
@@ -99,7 +99,7 @@
 
 <!-- Ingredientsection -->
 <section class="content-section-outer tea-template green-section info-section no-cart-resize">
-  <img src="{{ 'tea-template-greenlabel-bg.png' | asset_url }}" alt="cup society productbackground" class="section-background">
+  <img src="{{ 'tea-template-greenlabel-bg.png' | file_url }}" alt="cup society productbackground" class="section-background">
   <div class="container">
     <div class="info-wrapper white-text">
       <div class="main-description scroll-fade">
@@ -107,18 +107,16 @@
       </div>
       <div class="content-box-wrapper row">
         <div class="content-box col xl4 l12 s12 scroll-fade">
-          <h4><div class="icon" style="background: url({{ 'guarana-icon.png' | asset_url }}) no-repeat;"></div>Guarana</h4>
-          <!-- icon ueber customize laden (shopify) -->
-          <p>Die Guaranafrucht stammt von der gleichnamigen Pflanze aus dem Amazonasgebiet und wird auch Koffein-Liane genannt. Sie ist am bekanntesten f&uuml;r ihre stimulierende und belebende Wirkung, denn sie enth&auml;lt eine sehr hohe Konzentration an Koffein. Des weiteren ist sie reich an pflanzlichen Fetten und Vitaminen und haben neben der stimulierenden Wirkung auch einen satt machenden Effekt. Die Guarana-Kerne enthalten zwischen vier und acht Prozent Koffein welches einem dreimal so hohem Koffeingehalt der Kaffeebohnen entspricht.</p>
+          <h4><div class="icon" style="background: url({{ 'guarana-icon.png' | file_url }}) no-repeat;"></div>Guarana</h4>
+          <p class="read-text">Die Guaranafrucht stammt von der gleichnamigen Pflanze aus dem Amazonasgebiet und wird auch Koffein-Liane genannt. Sie ist am bekanntesten f&uuml;r ihre stimulierende und belebende Wirkung, denn sie enth&auml;lt eine sehr hohe Konzentration an Koffein. Des weiteren ist sie reich an pflanzlichen Fetten und Vitaminen und haben neben der stimulierenden Wirkung auch einen satt machenden Effekt. Die Guarana-Kerne enthalten zwischen vier und acht Prozent Koffein welches einem dreimal so hohem Koffeingehalt der Kaffeebohnen entspricht.</p>
         </div>
         <div class="content-box col xl4 l12 s12 scroll-fade">
-          <h4><div class="icon" style="background: url({{ 'kurkuma-icon.png' | asset_url }}) no-repeat;"></div>Kurkuma</h4>
-          <p>Kurkuma ist einer der bedeutendsten Heilpflanzen und enth&auml;lt als wirksamen Bestandteil Kurkumin. Es gilt als bedeutende Arznei in der chinesischen und indischen Medizin. Studien haben gezeigt, dass Kurkumin genauso wirksam gegen Entz&uuml;ndungen und Schmerzen ist wie so manch bekanntes Medikament, allerdings ohne deren sch&auml;dliche Nebenwirkungen. Die milde Sch&auml;rfe die die Kurkuma abgibt unterst&uuml;tzt harmoniert mit dem Ingwer in diesem Tee.</p>
+          <h4><div class="icon" style="background: url({{ 'kurkuma-icon.png' | file_url }}) no-repeat;"></div>Kurkuma</h4>
+          <p class="read-text">Kurkuma ist einer der bedeutendsten Heilpflanzen und enth&auml;lt als wirksamen Bestandteil Kurkumin. Es gilt als bedeutende Arznei in der chinesischen und indischen Medizin. Studien haben gezeigt, dass Kurkumin genauso wirksam gegen Entz&uuml;ndungen und Schmerzen ist wie so manch bekanntes Medikament, allerdings ohne deren sch&auml;dliche Nebenwirkungen. Die milde Sch&auml;rfe die die Kurkuma abgibt unterst&uuml;tzt harmoniert mit dem Ingwer in diesem Tee.</p>
         </div>
         <div class="content-box col xl4 l12 s12 scroll-fade">
-          <h4><div class="icon" style="background: url({{ 'aronia-icon.png' | asset_url }}) no-repeat;"></div>Aronia</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-            irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <h4><div class="icon" style="background: url({{ 'aronia-icon.png' | file_url }}) no-repeat;"></div>Aronia</h4>
+          <p class="read-text">Die Aroniabeere hat viele Namen. Unter anderem wird sie Wunderbeere oder auch Gesundheitsbeere genannt. Die gesundheitsf&ouml;rdernden Inhaltsstoffe der Aroniabeere sind zum einen die Vitamine A, C, E, K, sowie die komplette Gruppe der B-Vitamine und zahlreiche Mineralien und Spurenelemente. Kein Lebensmittel enth&auml;lt mehr Anthocyane als die Aroniabeere. Anthocyane k&ouml;nnen die Thrombozytenbildung verringern, das Sehverm&ouml;gen positiv beeinflussen und zeigen eine entz&uuml;ndungshemmende und antikarzinogene Wirkung, welche f&uuml;r den Koerper sehr wertvoll ist.</p>
         </div>
       </div>
     </div>
