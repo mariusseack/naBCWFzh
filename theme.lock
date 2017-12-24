@@ -22,7 +22,7 @@ assets/custom.js:
 assets/customer-account.css:
   development: 2017-12-19T03:22:40+01:00   dc2cd71f84ca21e05dcc86b587363395
 assets/design.css:
-  development: 2017-12-23T12:09:18+01:00   3ee1141229c360a9e1ef6691f0bab02f
+  development: 2017-12-24T02:17:52+01:00   2f97105b5650f912ce03c1b4f5ca6374
 assets/fastclick.min.js:
   development: 2017-12-19T20:18:28+01:00   4c68290ccc4d503561895dff0821621f
 assets/favicon.png:
@@ -94,15 +94,13 @@ assets/reveal-custom.js:
 assets/scrollreveal.min.js:
   development: 2017-12-17T17:25:44+01:00   5deb4348d63c0bfbce81c338d35db100
 assets/tea-design.css:
-  development: 2017-12-22T13:43:17+01:00   9100a8d8540367253ffb9781987f396c
+  development: 2017-12-23T23:19:34+01:00   9100a8d8540367253ffb9781987f396c
 assets/tea-template-blacklabel-bg.png:
   development: 2017-12-22T13:53:03+01:00   2c0ea0c551b7d0846052e26cd82f9466
 assets/tea-template-greenlabel-bg.png:
   development: 2017-12-22T13:50:18+01:00   f9c7883e37489759c82ae79c23dabd2a
 assets/tea-template.js:
-  development: 2017-12-21T23:22:34+01:00   ef24437534507e78236474d97bf21249
-assets/teesieb.png:
-  development: 2017-12-21T19:11:01+01:00   4bffffadaa0a24def6c3120cd6e04fd9
+  development: 2017-12-24T01:02:02+01:00   6d8d533c1dab84e279b59d057e9dd8dc
 assets/timber.js.liquid:
   development: 2017-12-19T20:18:23+01:00   8663e17d15e94386b5d6fb7c3e44b0bf
 assets/timber.scss.liquid:
@@ -112,7 +110,7 @@ config/settings_data.json:
 config/settings_schema.json:
   development: 2017-12-19T20:50:57+01:00   4de50d8b26c23ea835a23162e448572d
 layout/theme.liquid:
-  development: 2017-12-22T00:20:26+01:00   dc6b520a80d5e46923f1ade5f0c9b908
+  development: 2017-12-23T16:16:00+01:00   c4eb2437fdc27e4c0a88a880a13a706c
 locales/de.json:
   development: 2017-12-22T14:34:35+01:00   2abd067f7659ab06842bae755ca74024
 locales/en.default.json:
@@ -128,11 +126,11 @@ locales/pt-PT.json:
 snippets/404_snippet.liquid:
   development: 2017-12-23T12:34:31+01:00   aabde4391325f1025449833acc1a0294
 snippets/accessoires-bottle.liquid:
-  development: 2017-12-22T15:06:49+01:00   36abe8d7f43bfd64ae8e6a6cc52a0c92
+  development: 2017-12-24T00:22:08+01:00   05ffba4210277c25302d5003d7c38f44
 snippets/ajax-cart-template.liquid:
   development: 2017-12-19T20:18:16+01:00   e6fa15367ab47a164d9dc8e47353c684
 snippets/black-label_ib.liquid:
-  development: 2017-12-22T15:11:21+01:00   dcd30ae82166fbd7903c64c57b419cec
+  development: 2017-12-24T00:22:02+01:00   f103bec9767452bab78a5ef5471b9310
 snippets/blog-sidebar.liquid:
   development: 2017-12-19T20:18:34+01:00   ae3891e372509ded7074e50b2a97f438
 snippets/breadcrumb.liquid:
@@ -144,7 +142,7 @@ snippets/collection-sorting.liquid:
 snippets/comment.liquid:
   development: 2017-12-19T20:18:25+01:00   c766e42be8a74e05533d0e5a0e3a9ce3
 snippets/green-label_zi.liquid:
-  development: 2017-12-22T13:42:43+01:00   e04986bc0c6fc664cbaeb9b7658263d3
+  development: 2017-12-24T00:21:54+01:00   87a951eb252d1b41b2989203f0bc75a9
 snippets/oldIE-js.liquid:
   development: 2017-12-19T20:18:28+01:00   1197cc7109944206a600ed5caaef6a6f
 snippets/onboarding-empty-collection.liquid:
@@ -180,7 +178,7 @@ templates/customers/account.liquid:
 templates/customers/activate_account.liquid:
   development: 2017-12-19T20:18:27+01:00   d92bfce42f05a75de2f61cb6ba433e69
 templates/customers/addresses.liquid:
-  development: 2017-12-22T14:13:30+01:00   eb431b6a2cf1739805a5b29e29bc2960
+  development: 2017-12-23T17:15:13+01:00   614895f1ee6a3a5fba25a6fd714387ca
 templates/customers/login.liquid:
   development: 2017-12-23T13:13:36+01:00   0a520f9a9a947212e6ce1b4cde41d55e
 templates/customers/order.liquid:
@@ -192,7 +190,7 @@ templates/customers/reset_password.liquid:
 templates/gift_card.liquid:
   development: 2017-12-19T20:18:15+01:00   c1ae0f8232e003fac57213d1353e513c
 templates/index.liquid:
-  development: 2017-12-22T14:35:18+01:00   54c11a1ea872f33b45e836141d32c9cc
+  development: 2017-12-24T02:21:16+01:00   c0a3fb8653524e6796978f0fc250f7ed
 templates/list-collections.liquid:
   development: 2017-12-19T20:18:32+01:00   380da281c4820602d95334029b03aa84
 templates/page.contact.liquid:

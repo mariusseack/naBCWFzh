@@ -1,9 +1,10 @@
 $(document).ready(function() {
+  //first, check if the heading is inside of the headingcontainer
   checkTemplateheaderVisiblility();
 
   var para_element = $('.parallax-container .heading-container').children();
   var ele_offset = para_element.offset().top - para_element.height();
-  var puffer = 150; //amount (in pixel) of puffer the element can scroll above top
+  var puffer = -10; //amount (in pixel) of puffer the element can scroll above top
   var max_offset = ele_offset + puffer;
 
   var main_productcontainer = $(".main-productpicture-wrapper");
@@ -26,7 +27,7 @@ $(document).ready(function() {
       }
     }
 
-    checkTemplateheaderVisiblility();
+    checkTemplateheaderVisiblility(res);
 
   });
 
@@ -52,14 +53,22 @@ $(document).ready(function() {
 
 });
 
-function checkTemplateheaderVisiblility(){
-  var template_header = $('section.template-header');
-  var scrollTop = $(window).scrollTop();
+function checkTemplateheaderVisiblility(res){
+  const heading_container = $('.heading-container');
+  const heading = heading_container.children('.product-heading');
 
-  if(template_header.height() < scrollTop){
-    template_header.children().children('.heading-container').fadeOut();
+  var scrolltop = $(window).scrollTop();
+  var limit = heading_container.height();
+  var heading_bottom = heading.position().top + heading.height();
+
+  if( (heading_bottom + scrolltop) >= limit ){
+    heading.css('opacity', '0');
   }
   else {
-    template_header.children().children('.heading-container').fadeIn();
+    if(typeof res !== 'undefined' || res !== undefined){
+      heading.css('opacity', res);
+    }else {
+      heading.css('opacity', '1');
+    }
   }
 }

@@ -24,7 +24,7 @@
         <ul class="collapsible" data-collapsible="accordion">
           {% for address in customer.addresses %}
           <li>
-            <div class="collapsible-header {% if forloop.first == true %}active{% endif %}"><i class="material-icons">home</i>{{forloop.index}}. Adresse</div>
+            <div class="collapsible-header {% if forloop.first == true %}active{% endif %}"><i class="material-icons">home</i>{{forloop.index}}. Adresse {%- if address == customer.default_address -%}&nbsp;(Standartadresse){%- endif -%}</div>
             <div class="collapsible-body">
               <div id="view_address_{{address.id}}" class="row">
                 <div class="address_overview_outputfield col s6">
@@ -41,14 +41,11 @@
                     <span class="col">Unternehmen</span>
                   </div>
                 {%- endif -%}
-                <div class="address_overview_outputfield col s8">
+                <div class="address_overview_outputfield col s12">
                   <p id="street_output_1">{{address.address1}}</p>
                   <span class="col">Stra&szlig;e</span>
                 </div>
-                <div class="address_overview_outputfield col s4">
-                  <p id="hnumber_output_1">{{address.address2}}</p>
-                  <span class="col">Hausnr.</span>
-                </div>
+
                 <div class="address_overview_outputfield col s12 m6">
                   <p id="location_output_1">{{address.city}}</p>
                   <span class="col">Stadt</span>
@@ -81,13 +78,9 @@
                   <input id="street_edit" type="text" class="validate" value="{{address.company}}" name="address[company]">
                   <label for="street_edit">Unternehmen</label>
                 </div>
-                <div class="input-field col s8">
-                  <input required id="street_edit" type="text" class="validate" value="{{address.address1}}" name="address[address1]">
-                  <label for="street_edit">Stra&szlig;e</label>
-                </div>
-                <div class="input-field col s4">
-                  <input required id="hnumber_edit" type="text" class="validate" value="{{address.address2}}" name="address[address2]">
-                  <label for="hnumber_edit">Hausnr.</label>
+                <div class="input-field col s12">
+                  <input required id="address1_edit" type="text" class="validate" value="{{address.address1}}" name="address[address1]">
+                  <label for="address1_edit">Stra&szlig;e</label>
                 </div>
 
                 <div class="input-field col s12 m6">
@@ -104,8 +97,13 @@
                   <label for="telephone_edit">Telefonnummer (optional)</label>
                 </div>
 
+                <p class="col s12 default-address-panel">
+                  <input type="checkbox" id="address_default_address_{{address.id}}" name="address[default]" value="1" {%- if address == customer.default_address -%} checked {%- endif -%}>
+                  <label for="address_default_address_{{address.id}}" class="inline">Als Standartadresse festlegen</label>
+                </p>
+
                 <div class="btn_group col s12 m6">
-                  <input type="submit" class="btn  primary-btn" value="Aktualisierung">
+                  <input type="submit" class="btn primary-btn" value="Aktualisierung">
                 </div>
                 <div class="btn_group col s12 m6">
                   <a class="btn  primary-btn" onclick="Shopify.CustomerAddress.toggleForm({{address.id}});return false">Abbrechen</a>
@@ -134,13 +132,9 @@
                       <label for="company_add">Unternehmen</label>
                     </div>
 
-                    <div class="input-field col s8">
+                    <div class="input-field col s12">
                       <input required id="street_add" type="text" class="validate" name="address[address1]">
                       <label for="street_add">Stra&szlig;e</label>
-                    </div>
-                    <div class="input-field col s4">
-                      <input required id="hnumber_add" type="text" class="validate" name="address[address2]">
-                      <label for="hnumber_add">Hausnr.</label>
                     </div>
 
                     <div class="input-field col s12 m6">
@@ -156,7 +150,13 @@
                       <input id="telephone_add" type="tel" class="validate" name="address[phone]">
                       <label for="telephone_add">Telefonnummer (optional)</label>
                     </div>
+
+                    <p class="col s12 default-address-panel">
+                        <input type="checkbox" id="address_default_address_new" name="address[default]" value="1">
+                        <label for="address_default_address_new" class="inline">Als Standartadresse festlegen</label>
+                    </p>
                   </div>
+
                   <div class="row">
                     <div class="col s12 m6 offset-m3 left-align btn_group">
                       <input type="submit" class="btn primary-btn" value="{{ 'customer.addresses.add' | t }}">

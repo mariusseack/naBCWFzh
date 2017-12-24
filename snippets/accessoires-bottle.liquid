@@ -11,7 +11,7 @@
   <div class="parallax-container">
     <div class="parallax"><img src="{{ 'accessoire-template-bottle-bg.png' | asset_url }}" style="max-height: 100%;"></div>
     <div class="heading-container" style="background-color: rgba(0,0,0,0.1);">
-      <div class="fixed">
+      <div class="fixed product-heading">
         <h1 class="heading" style="color: #222;">Teeflasche</h1>
         <p class="center-align" style="color: #222;">Exklusive & hochwertige Accessoires von Cup Society</p>
       </div>
@@ -58,7 +58,7 @@
 </section>
 <!-- Buy-section -->
 
-<!-- Informationsection - Infusor -->
+<!-- Informationsection - Flasche -->
 <section class="content-section-outer information-content tea-template black-section info-section no-cart-resize">
   <div class="information-box valign-wrapper row">
     <div class="content scroll-fade col s12 m8 shadow-box ">
@@ -66,17 +66,17 @@
       <p class="read-text">Die Teeflasche ist aus doppelwandigem Glas, was dazu beitr&auml;gt, dass der Tee sehr lange die gew&uuml;nschte Temperatur h&auml;lt, von außen jedoch maximal angenehm warm wird. Der Bambusdeckel hat von innen eine Dichtung aus Gummi, es kann also nichts auslaufen. Wir empfehlen trotzdem darauf zu achten, den Deckel immer fest zu schließen.  Die Teeflasche kann ohne Bedenken zur Reinigung mit in die Sp&uuml;lmaschine, nur der Deckel, welcher aus Bambus hergestellt ist, sollte nicht dazugegeben werden. Dieser kann einfach unter warmen Wasser abgesp&uuml;lt werden.</p>
     </div>
     <div class="content img-content scroll-fade col s12 m4 center-align">
-      <img src="{{ 'teesieb.png' | asset_url }}" alt="teesieb">
+      <img src="{{ 'teeflasche.png' | file_url }}" alt="teeflasche aus glas mit teesieb">
     </div>
   </div>
 </section>
 <!-- Informationsection -->
 
-<!-- Informationsection - Flasche -->
+<!-- Informationsection - Infusor -->
 <section class="content-section-outer information-content tea-template black-section info-section no-cart-resize">
   <div class="information-box valign-wrapper row">
     <div class="content img-content scroll-fade col s12 m4 center-align">
-      <img src="{{ 'teesieb.png' | asset_url }}" alt="teesieb">
+      <img src="{{ 'teesieb.png' | file_url }}" alt="teesieb">
     </div>
     <div class="content scroll-fade col s12 m8 shadow-box ">
       <h2 class="center-align">Infusor</h2>
@@ -100,6 +100,7 @@
 </section> -->
 <!-- Informationsection -->
 
+{%- comment %}
 <!-- Preparationvideosection -->
 <section class="content-section-outer first tea-template no-cart-resize">
   <div class="container">
@@ -133,3 +134,4 @@
   </div>
 </div>
 <!-- !Support -->
+{% endcomment -%}
