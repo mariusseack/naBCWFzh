@@ -514,6 +514,7 @@ nav ul a i {
 .cart-productimg, .order-element>.img {
   width: 75px;
   height: 75px;
+  margin: 10px 0;
 }
 
 .order-element>.img {
@@ -531,7 +532,6 @@ nav ul a i {
   background-repeat: no-repeat;
   background-size: contain;
   flex: 0 0 auto;
-  margin: 10px 0;
 }
 
 .cart-product-description {
