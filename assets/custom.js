@@ -18,6 +18,14 @@ $(document).ready(function() {
       nav.removeClass("z-depth-4");
     }
   });
+
+  var top = $('#cd-timeline').children().first().position().top;
+  var bottom = $('#cd-timeline').children().last().position().top;
+  $('#cd-timeline:before').css({
+    'top': top+'px',
+    'bottom': bottom+'px'
+  });
+
 });
 
 $('.carousel.carousel-slider').carousel({
